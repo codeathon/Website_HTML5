@@ -6,6 +6,6 @@
 
 	<div class="container_16">
 		<a href="index.php">
-			<img alt="logo" src="images/logo-small.png" id="logo-top" height="85" width="140">   
+			<img alt="logo" src="images/logo-small" id="logo-top" height="85" width="140">   
 		</a>
 	
