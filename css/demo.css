@@ -1,0 +1,51 @@
+/* DEMO#1 */
+
+#myExample {
+	margin: 30px auto;
+	width: 640px;
+	height: 240px;
+	overflow: hidden;
+}
+
+#myExample img {
+	border: 2px solid white;
+	-moz-box-shadow: 10px 10px 10px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 10px 10px 10px rgba(0,0,0,0.3);
+	-o-box-shadow: 10px 10px 10px rgba(0,0,0,0.3);	
+	box-shadow: 10px 10px 10px rgba(0,0,0,0.3);		
+}
+
+.controls {
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 0.8em;
+	color: blue;
+}
+
+.controls span {
+	cursor: pointer;
+	padding: 0px 10px;
+}
+
+.news li {
+	background-color: white;
+	border: 3px solid silver;
+	padding: 10px;
+	width: 250px;
+	height: 200px;
+	font-size: 0.8em;
+	-moz-box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+	-o-box-shadow: 10px 10px 10px rgba(0,0,0,0.5);	
+	box-shadow: 10px 10px 10px rgba(0,0,0,0.5);		
+}
+
+.news #myExample img {
+	margin: 10px;
+	border: 2px solid silver;
+	-moz-box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+	-o-box-shadow: 3px 3px 3px rgba(0,0,0,0.3);	
+	box-shadow: 3px 3px 3px rgba(0,0,0,0.3);		
+}
+

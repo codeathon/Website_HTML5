@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+<<<<<<< HEAD
+<<<<<<< HEAD
+	<name>M1</name>
+=======
+<<<<<<< HEAD
+	<name>ZZ</name>
+=======
+<<<<<<< HEAD
+	<name>meLast</name>
+=======
+<<<<<<< HEAD
+	<name>tmeThirs</name>
+=======
+	<name>tmesecond</name>
+>>>>>>> 5a757553ef7619c72afc5033118948d92480aec3
+>>>>>>> 9312a181ca02b9cd5b7b08cb3771780dfacaf0bc
+>>>>>>> f249467e8a408cca7d9bca5e13b72abe3b733607
+>>>>>>> 50b0744c75d88223e717b9d30cda0044ba50ae6c
+=======
+	<name>tme_app2</name>
+=======
+<<<<<<< HEAD
+	<name>Last</name>
+=======
+	<name>newapp</name>
+>>>>>>> 6d67fbc840d568f2a6d928ae9fd5d0554eeaa13f
+>>>>>>> 8473de818b2eb340afd4e35aab89755e2867a46d
+>>>>>>> 1478c055c2238a6f92ad1a3c717ea2f7590c839d
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.aptana.editor.php.aptanaPhpBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>com.aptana.ide.core.unifiedBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.aptana.editor.php.phpNature</nature>
+		<nature>com.aptana.projects.webnature</nature>
+	</natures>
+</projectDescription>

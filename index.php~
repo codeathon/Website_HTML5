@@ -3,7 +3,7 @@
 	//Authors - FlipTeam@framehawk.com
 	//Used in TME Project
 ?>
-	<?php include 'common_files/header.php'; ?>	
+	<?php include 'common_files/header.php'; ?>
 	<?php include 'common_files/top_ribbon.php'; ?>
 	
 	<div class="clear"></div>
@@ -12,7 +12,7 @@
 			<div class="shadow1">
 				<div class="content" style="cursor:pointer">
 					<img alt="logo" src="images/aids-ribbon.png" id="label1" height="120" width="140">
-					<br/> <center> <b> HIV / AIDS Demo 1</b>
+					<br/> <center> <b> HIV / AIDS </b>
 					</center>
 					<a href="hiv_aids_home.php"></a>
 				</div>
@@ -24,11 +24,9 @@
 		<div class="lesson_label">
 			<div class="shadow1">	
 				<div class="content" style="cursor:pointer">
-					<img alt="logo" src="images/aids-ribbon.png" id="label2" height="130" width="140">
-					<br/> <center> <b> HIV / AIDS Demo 2 </b></center>
-
-					<a href="hiv_aids_home_test.php"></a>
-
+					<img alt="logo" src="images/Hygiene.png" id="label2" height="130" width="140">
+					<br/> <center> <b> Basic Hygiene </b></center>
+					<a href="test2.php"></a>
 				</div>
 			</div>
 		</div>
@@ -41,9 +39,9 @@
 					<img alt="logo" src="images/nosmoking.png" id="label3" height="130" width="140">
 					<br/> <center> <b> Dangers of Smoking</b>    <!-- change this -->
 					</center>
-					
-				
-				<a href="HIV-AIDS-TEST/get_lesson.php" />
+
+					<a href="start.php"></a>
+
 				</div>
 			</div>
 		</div>
