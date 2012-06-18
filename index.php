@@ -43,7 +43,7 @@
 					</center>
 					
 				
-				<a href="HIV-AIDS-TEST/get_lesson.php" />
+				<a href="hiv_test3.php" />
 				</div>
 			</div>
 		</div>
