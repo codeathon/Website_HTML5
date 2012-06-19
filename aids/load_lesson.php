@@ -122,7 +122,7 @@
 		return $image_link;
 	}
 	   
-	   
+	echo  $intro_image_link;  
 ?>
 <script type='text/javascript'>
 	
