@@ -68,7 +68,6 @@
 					</center>
 					
 				
-				<a href="hiv_test3.php" />
 				</div>
 			</div>
 		</div>
@@ -80,17 +79,53 @@
 				<div class="content" style="cursor:pointer">
 					<img alt="logo" src="images/aids-ribbon.png" id="label2" height="130" width="140">
 					<br/> <center> 
-					  <p><b> HIV / AIDS Demo 3</b>
+					  <p><b> HIV / AIDS Andrew</b>
 				      </p>
 					  <p><span class="clear"><a href="etest/test.php">Extra Test</a></span></p>
 					</center>
 
-					<a href="hiv_aids_home_test.php"></a>
+					<a href="test.php"></a>
 
 				</div>
 			</div>
 		</div>
   </div>
+  
+      <div class="grid_2 prefix_1 suffix_2">
+		<div class="lesson_label">
+			<div class="shadow1">	
+				<div class="content" style="cursor:pointer">
+					<img alt="logo" src="images/aids-ribbon.png" id="label2" height="130" width="140">
+					<br/> <center> 
+					  <p><b> HIV / AIDS Rohit</b>
+				      </p>
+					  <p><span class="clear"><a href="aids/load_lesson_R.php">Extra Test</a></span></p>
+					</center>
+
+					<a href="test.php"></a>
+
+				</div>
+			</div>
+		</div>
+  </div>
+  
+      <div class="grid_2 prefix_1 suffix_2">
+		<div class="lesson_label">
+			<div class="shadow1">	
+				<div class="content" style="cursor:pointer">
+					<img alt="logo" src="images/aids-ribbon.png" id="label2" height="130" width="140">
+					<br/> <center> 
+					  <p><b> HIV / AIDS Lang</b>
+				      </p>
+					  <p><span class="clear"><a href="etest1/test.php">Extra Test</a></span></p>
+					</center>
+
+					<a href="test.php"></a>
+
+				</div>
+			</div>
+		</div>
+  </div> 
   
 <!-- The following JQuery is used to fetch the anchor tag in the div element and redirect the browser to that location. -->
   
@@ -109,4 +144,4 @@
 </body>
 </html>  
   
-  
+ 
