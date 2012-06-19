@@ -77,7 +77,7 @@
 		$teaching_points[$current_teaching_point][2] = $tp_rows['order'];
 		
 		//Increment the current teaching point number.
-		echo  $current_teaching_point."2<br/>"; 
+		echo  $current_teaching_point."<br/>"; 
 		$current_teaching_point++;		
 			
 	}		// End of While Loop.
