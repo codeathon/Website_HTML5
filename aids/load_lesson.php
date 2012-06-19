@@ -143,6 +143,8 @@
 		$image_query_result = mysql_query($image_sql);
 		$image_rows = mysql_fetch_array($image_query_result);
 		$image_link = $image_rows['Name'];	
+		
+		echo "Image - ".$image_link;
 		return $image_link;
 	}
 		
