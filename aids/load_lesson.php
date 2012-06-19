@@ -10,9 +10,12 @@
 	// Global variables declaration
 	$intro_audio_link = "";
 	$intro_image_link = "";
+	$whoosh_transition_audio_link = "";
+	$whoosh_transition_image_link = "";
 	$teaching_points = array();									// To store all the teaching point links.
 	$questions = array();										// To store all the question links.
 	$quiz = array();											// To store all the quiz links.
+	$total_questions = array();
 	
 	
 	$language_code = "ENG";  	// This is for testing only. This needs to be passed from the UI.
@@ -46,6 +49,11 @@
 	$get_language_id_rows = mysql_fetch_array($get_language_id_result);			
 	$language_id = $get_language_id_rows['LanguageID'];
 	
+	
+	// Load the Whoosh Transition Content.			
+	$whoosh_transition_audio_link = getAudioLink($get_intro_rows['AudioID']); 
+	$whoosh_transition_image_link = getImageLink($get_intro_rows['ImageID'], $language_id);
+	
 		
 	// Load all the Intro Content.
 	if(!($get_intro_slq = "SELECT * FROM tme_intro_table WHERE  `LanguageID` = '$language_id'")) {
@@ -53,8 +61,8 @@
 	}
 	$get_intro_result =  mysql_query($get_intro_slq);
 	$get_intro_rows = mysql_fetch_array($get_intro_result);			
-	$intro_audio_link = getAudioLink($get_intro_rows['AudioID']); 
-	$intro_image_link = getImageLink($get_intro_rows['ImageID'], $language_id);
+	$intro_audio_link = getAudioLink(56); 
+	$intro_image_link = getImageLink(22, $language_id);
 			
 	// Declaring the variables. 		
 	$index = 0;							// Used in the second while loop. For loading all the quiz-es.
@@ -71,10 +79,13 @@
 			//Call the function to fetch all the Audio and Image Links.
 			$teaching_points[$current_teaching_point][$j][0] = getAudioLink($tp_rows['AudioID']);   	
 			$teaching_points[$current_teaching_point][$j][1] = getImageLink($tp_rows['ImageID'], $language_id);
-			$teaching_points[$current_teaching_point][$j][2] = $tp_rows['order'];
+			$teaching_points[$current_teaching_point][$j][2] = $tp_rows['order'];			
 			$j++;
+			
 		}
-		
+					
+		$total_questions[$current_teaching_point] = $j--;	
+					
 		//Increment the current teaching point number.		
 		$current_teaching_point++;		
 			
@@ -133,6 +144,119 @@
 	 	
 ?>
 <script type='text/javascript'>
+	
+	// Global Variables.
+	var current_teaching_point = 1;
+	var current_question = 1;
+	/*
+	 * This function is used to load the teaching points from the database and create a playlist for the player.
+	 */
+	
+	function loadTeachingPoints(){
+		var index = 0;			
+				
+		while(<?php echo $total_questions[1]; ?>) {											
+			tp_playlist[index] = '<?php echo  ?>';
+			tp_imagelist[index++] = '<?php echo getImageLink($tp_ImageID, $Lang_ID); ?>';
+		}
+					
+		tp_playlist[index] = '<?php echo $whoosh_transition_audio_link; ?>';
+		tp_imagelist[index++] = '<?php echo $whoosh_transition_image_link; ?>';	
+		
+	}
+
+	/*
+	 * This function is used to load the new Map for the image.
+	 */
+	function changeMap(mapName){
+		if (document.all) document.all.image.setAttribute('useMap', mapName) 
+		else if (document.getElementById) document.getElementById('image').useMap = mapName; 
+	}
+	
+	
+	/*
+	 * This is the starting point of the script. It starts with execution of the intro content.
+	 */
+	function PlayIntro1() {
+	 	
+	 	$('#play').hide();
+	 	
+	 	var playlist= [];
+		var imagelist= []; 
+		
+		playlist[0] = '<?php echo $intro_audio_link; ?>';
+		imagelist[0] = '<?php echo $intro_image_link; ?>';
+		
+		$("#down").click(function() {
+			alert("Hello");
+		});
+		
+		$("#right").click(function() {
+			changeMap('#Map2');							
+			loadTeachingPoints(); 			
+			loadQuestions();
+			var new_playlist = tp_playlist.concat(que_playlist);
+			var new_imglist = tp_imagelist.concat(que_imagelist);
+  			StartPlayer(new_playlist, new_imglist, "false");  					  			
+		});		
+		
+		$("#up_question").click(function() {
+			var right_answer = <?php echo checkAnswer(); ?>;
+			if(right_answer == 1) {				
+				onCorrectClick();
+			} else {
+				onWrongClick();
+			}
+		});
+		
+		
+		$("#down_question").click(function() {
+			var right_answer = <?php echo checkAnswer(); ?>;
+			if(right_answer == 2) {
+				onCorrectClick();
+			} else {
+				onWrongClick();
+			}
+		});	
+		
+		StartPlayer(playlist, imagelist, "true");
+		
+	 }
+	 
+	 /*
+	  * This is a generic function which starts the player. This takes in the argument of Playlist and ImageList.
+	  */
+	 function StartPlayer(playlist, imagelist, pauseVariable) {	 	
+	 	
+	 	var i=0;
+	 		 		 	
+	 	myAudio = new Audio();
+        document.getElementById("myaudio").appendChild(myAudio);
+        myAudio.preload = true;
+        myAudio.controls = true;
+        document.getElementById("image").src=imagelist[0];
+        myAudio.src = playlist[0];
+        myAudio.addEventListener('ended', playEndedHandler, false);        
+        myAudio.play();
+        
+	 	function playEndedHandler(e){	
+			if(i < playlist.length)
+			{
+				if(pauseVariable=="true") {
+					myAudio.pause();
+				}
+				else {					
+			 		i++; 
+			 		myAudio.src = playlist[i];
+			 		myAudio.play();
+			 		//change image
+			 		if(i < playlist.length) {
+					 	document.getElementById("image").src=imagelist[i];
+					 }
+				}    
+			 }
+		}	 	
+	 }	
 	
 </script>
 </center>	
