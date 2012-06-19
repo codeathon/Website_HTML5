@@ -67,7 +67,8 @@
 					<br/> <center> <b> Dangers of Smoking</b>    <!-- change this -->
 					</center>
 					
-				
+					<a href="hiv_test3.php"></a>
+					
 				</div>
 			</div>
 		</div>
