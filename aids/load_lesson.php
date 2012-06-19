@@ -61,7 +61,8 @@
 		
 	echo $current_teaching_point."<br/> *";
 	echo $tp_total_count."<br/>+";
-				
+	echo $question_total_count;		
+		
 	while($current_teaching_point<=$tp_total_count) {
 				
 		// SQL to fetch all the Audio and Image IDs for the Teaching Point from the database.
