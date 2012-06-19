@@ -43,14 +43,14 @@ body {
 }
 
 .shadow1 {
-     background-color: #444444;
+     background-color: #ffffff;
      box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
      margin: 40px;
      width: 220px;
 }
 
 .shadow1 .content {
-     background-color: #ffffff;
+     background-color: #444444;
      height: 0px;
      padding-bottom: 100px;
      padding-top: 100px;
