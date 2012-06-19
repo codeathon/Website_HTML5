@@ -31,11 +31,23 @@
 			<img alt="logo" src="images/logo_small.png" id="logo-top" height="85" width="140">   
 		</a>
 	</div>
-  
+
+
+<form action="">
+<select name="cars">
+<option value="volvo">Volvo</option>
+<option value="saab">Saab</option>
+<option value="fiat" selected="selected">Fiat</option>
+<option value="audi">Audi</option>
+</select>
+</form>
+
+ 
 <!-- The following JQuery is used to fetch the anchor tag in the div element and redirect the browser to that location. -->
   
   <script>
 		$(".content").click(function(){
+
 		 window.location=$(this).find("a").attr("href");
 		 return false;
 		});	
