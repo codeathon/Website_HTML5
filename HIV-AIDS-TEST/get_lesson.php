@@ -340,7 +340,7 @@
 
 
 	function highlight(idname){
-		$('area#idname').maphilight();
+		$('area#idname').effect("highlight",{},3000);
 		
 
 
