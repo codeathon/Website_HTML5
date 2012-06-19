@@ -10,9 +10,9 @@
 	// Global variables declaration
 	$intro_audio_link = "";
 	$intro_image_link = "";
-	$teaching_points = array();									// To store all the teaching point links.
-	$questions = array();										// To store all the question links.
-	$quiz = array();											// To store all the quiz links.
+	$teaching_points = array(array());									// To store all the teaching point links.
+	$questions = array(array());										// To store all the question links.
+	$quiz = array(array());											// To store all the quiz links.
 	
 	
 	$language_code = "ENG";  	// This is for testing only. This needs to be passed from the UI.
@@ -76,10 +76,10 @@
 			$teaching_points[$current_teaching_point][$j][1] = getImageLink($tp_rows['ImageID'], $language_id);
 			$teaching_points[$current_teaching_point][$j][2] = $tp_rows['order'];
 			$j++;
-		
+			//echo "*";
+			
 		}
 				
-		echo $teaching_points[1][2][1];
 		//Increment the current teaching point number.
 		echo  $current_teaching_point."<br/>"; 
 		/*echo $teaching_points[$current_teaching_point][0]."<br/>";
@@ -88,7 +88,9 @@
 		
 		$current_teaching_point++;		
 			
-	}		// End of While Loop.
+	}	
+	
+		echo $teaching_points[1][2][1];	// End of While Loop.
 		
 	while($current_question_point<=$question_total_count) {
 			
