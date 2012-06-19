@@ -50,7 +50,7 @@
 	$get_language_id_result =  mysql_query($get_language_id_slq);
 	$get_language_id_rows = mysql_fetch_array($get_language_id_result);			
 	$language_id = $get_language_id_rows['LanguageID'];
-	echo 
+	
 		
 	// Load all the Intro Content.
 	if(!($get_intro_slq = "SELECT * FROM tme_intro_table WHERE  `LanguageID` = '$language_id'")) {
