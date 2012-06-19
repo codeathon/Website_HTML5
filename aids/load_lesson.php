@@ -76,7 +76,8 @@
 			$teaching_points[$current_teaching_point][$j][1] = getImageLink($tp_rows['ImageID'], $language_id);
 			$teaching_points[$current_teaching_point][$j][2] = $tp_rows['order'];
 			$j++;
-		
+			echo "*";
+			
 		}
 				
 		//Increment the current teaching point number.
