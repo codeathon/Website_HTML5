@@ -7,7 +7,17 @@
 
 <body>HELLOOOOOOOOOOOOOOOOOOOOO FROM ALIENVILLE
 <embed height="50px" width="100px" src="https://dl.dropbox.com/s/80c0uin1gz489qb/woah.wav" />
+<?php
 
+mysql_connect(
+  $server = getenv('MYSQL_DB_HOST'),
+  $username = getenv('MYSQL_USERNAME'),
+  $password = getenv('MYSQL_PASSWORD'));
+mysql_select_db(getenv('MYSQL_DB_NAME'));
+
+
+$sql = "SELECT Name FROM `tme_image_table";
+?>
 
 
 </body>
