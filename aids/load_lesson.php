@@ -122,7 +122,7 @@
 		return $image_link;
 	}
 		
-	echo  $teaching_points[12][0];  
+	echo  $teaching_points[2][0]."1<br/>";  
 ?>
 <script type='text/javascript'>
 	
