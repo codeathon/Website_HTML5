@@ -1,0 +1,15 @@
+
+<?php
+	//This page represents the HIV_AIDS index page. It takes the header from header_common.
+	//Authors - FlipTeam@framehawk.com
+	//Used in TME Project
+?>
+
+<?php include 'common_files/header.php'; ?>
+<link rel="stylesheet" type="text/css" href="css/aids.css" />
+<script src="js/clear_div.js"></script>
+<?php include 'common_files/top_ribbon.php'; ?>
+<center>
+<?php include 'HIV-AIDS/index.php'; ?>
+</center>
+<?php include 'common_files/footer.php'; ?>

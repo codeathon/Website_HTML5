@@ -1,0 +1,63 @@
+html, body {
+     height: 100%;
+}
+
+body {
+     background-color: #e9e9e9;
+     margin: 0px;
+}
+
+#label1 {
+     margin-left: 35px;
+     margin-top: -70px;
+}
+
+#label2 {
+     margin-left: 40px;
+     margin-top: -80px;
+}
+
+#label3 {
+     margin-left: 40px;
+     margin-top: -80px;
+}
+
+#top-ribbon {
+     background-color: #242323;
+     height: 40px;
+}
+
+#logo-bar {
+     background-color: #ffffff;
+     height: 100px;
+}
+
+#logo-top {
+     margin-bottom: 21px;
+     margin-left: 40px;
+     margin-top: -105px;
+}
+
+.lesson_label {
+     height: 20px;
+}
+
+.shadow1 {
+     background-color: #ffffff;
+     box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+     margin: 40px;
+     width: 220px;
+}
+
+.shadow1 .content {
+     background-color: #ffffff;
+     height: 0px;
+     padding-bottom: 100px;
+     padding-top: 100px;
+     position: relative;
+     width: 220px;
+}
+
+.shadow1 .content:hover {
+     background-color: #cccccc;
+}
