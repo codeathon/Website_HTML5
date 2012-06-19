@@ -76,6 +76,8 @@
 		$j = 1;
 		while($tp_rows = mysql_fetch_array($tp_result)){
 			
+			print_r($tp_rows);
+						
 			//Call the function to fetch all the Audio and Image Links.
 			$teaching_points[$current_teaching_point][$j][0] = getAudioLink($tp_rows['AudioID']);   	
 			$teaching_points[$current_teaching_point][$j][1] = getImageLink($tp_rows['ImageID'], $language_id);
