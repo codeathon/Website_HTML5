@@ -64,9 +64,9 @@
 			$tp_rows = mysql_fetch_array($tp_result);
 			
 			//Call the function to fetch all the Audio and Image Links.
-			$teaching_points[0][$current_teaching_point] = getAudioLink($tp_rows['AudioID']);   	
-			$teaching_points[1][$current_teaching_point] = getImageLink($tp_rows['ImageID'], $language_id);
-			$teaching_points[2][$current_teaching_point] = $tp_rows['order'];
+			$teaching_points[$current_teaching_point][0] = getAudioLink($tp_rows['AudioID']);   	
+			$teaching_points[$current_teaching_point][1] = getImageLink($tp_rows['ImageID'], $language_id);
+			$teaching_points[$current_teaching_point][2] = $tp_rows['order'];
 			
 			//Increment the current teaching point number.
 			$current_teaching_point++;
@@ -82,20 +82,20 @@
 				
 			//Call the function to fetch all the Audio and Image Links.
 			if($question_rows['tpname']!=0) {
-				$questions[0][$current_question_point] = getAudioLink($question_rows['AudioID']);   	
-				$questions[1][$current_question_point] = getImageLink($question_rows['ImageID'], $language_id);
-				$questions[2][$current_question_point] = $question_rows['order'];
-				$questions[3][$current_question_point] = $question_rows['Answer'];
-				$questions[4][$current_question_point] = getAudioLink($question_rows['positive']);
-				$questions[5][$current_question_point] = getAudioLink($question_rows['negative']);
-				$questions[6][$current_question_point] = $question_rows['tpname'];
+				$questions[$current_question_point][0] = getAudioLink($question_rows['AudioID']);   	
+				$questions[$current_question_point][1] = getImageLink($question_rows['ImageID'], $language_id);
+				$questions[$current_question_point][2] = $question_rows['order'];
+				$questions[$current_question_point][3] = $question_rows['Answer'];
+				$questions[$current_question_point][4] = getAudioLink($question_rows['positive']);
+				$questions[$current_question_point][5] = getAudioLink($question_rows['negative']);
+				$questions[$current_question_point][6] = $question_rows['tpname'];
 			}
 			else if ($question_rows['tpname']==0) {
 				$quiz[$index] = 	$current_question_point;		// Store the Question Number for the Quiz.	
 				$index++;	
 			}
 						
-			//Increment the current teaching point number.
+			//Increment the current question number.
 			$current_question_point++;
 						
 		}		// End of While Loop.
@@ -122,13 +122,13 @@
 		return $image_link;
 	}
 	   
-	echo  $intro_image_link;  
+	echo  $language_code;  
 ?>
 <script type='text/javascript'>
 	
 </script>
 </center>	
-	<?php include 'common_files/top_ribbon.php'; ?>
+	<!--<?php include 'common_files/top_ribbon.php'; ?>-->
 	<center>  		
   		 
 	        	
