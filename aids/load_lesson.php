@@ -18,7 +18,7 @@
 	$language_code = "ENG";  	// This is for testing only. This needs to be passed from the UI.
 	
 	$current_teaching_point = 1;								// Specifies the current teaching point being pocessed.
-	$current_question_point = 1;								// Specifies the current qquestion beign processed.
+	$current_question_point = 1;								// Specifies the current question beign processed.
 						
 		
 	// Get the Total Teaching Points.
@@ -63,11 +63,7 @@
 	echo $tp_total_count."<br/>";
 				
 	while($current_teaching_point<=$tp_total_count) {
-		
-		//Reference to the Global Variables.
-		$teaching_points &= $_GLOBALS['teaching_points'];
-		$teaching_points &= $_GLOBALS['current_teaching_point'];
-			
+				
 		// SQL to fetch all the Audio and Image IDs for the Teaching Point from the database.
 		$tp_sql = "SELECT * FROM tme_teaching_point WHERE tpname LIKE '$current_teaching_point'";
 		$tp_result = mysql_query($tp_sql);
@@ -81,8 +77,7 @@
 		
 		//Increment the current teaching point number.
 		echo  $current_teaching_point."2<br/>"; 
-		$current_teaching_point++;
-		
+		$current_teaching_point++;		
 			
 	}		// End of While Loop.
 		
