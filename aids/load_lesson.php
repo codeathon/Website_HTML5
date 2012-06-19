@@ -80,12 +80,12 @@
 			$teaching_points[$current_teaching_point][$j][0] = getAudioLink($tp_rows['AudioID']);   	
 			$teaching_points[$current_teaching_point][$j][1] = getImageLink($tp_rows['ImageID'], $language_id);
 			$teaching_points[$current_teaching_point][$j][2] = $tp_rows['order'];
-			print_r($teaching_points);
+		//	print_r($teaching_points);
 			$j++;
 			echo "<br/><br/>";
 			
 		}
-		print_r($teaching_points[1][1][1]);		
+		print_r($teaching_points[1][1][0]);		
 		//Increment the current teaching point number.
 		//echo  $current_teaching_point."<br/>"; 
 		/*echo $teaching_points[$current_teaching_point][0]."<br/>";
@@ -144,11 +144,12 @@
 		$image_rows = mysql_fetch_array($image_query_result);
 		$image_link = $image_rows['Name'];	
 		
-		echo "Image - ".$image_link;
+	//	echo "Image - ".$image_link;
+		echo $Lang;
 		return $image_link;
 	}
 		
-	 
+	 	
 ?>
 <script type='text/javascript'>
 	
