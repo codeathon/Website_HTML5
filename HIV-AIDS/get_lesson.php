@@ -346,15 +346,17 @@
 	<style type="text/css">
 	.under
 	{
-	left:400px;
-	top:100px;
+	position:absolute;
+	left:300px;
+	top:130px;
 	z-index:-1;
 	}
 
 	.over
 	{
-	left:400px;
-	top:100px;
+	position:absolute;
+	left:300px;
+	top:130px;
 	z-index:-1;
 	}
 	</style> </head><body>
