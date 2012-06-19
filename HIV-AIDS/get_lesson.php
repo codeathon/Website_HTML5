@@ -346,7 +346,7 @@
   		 
 	        	
     	<div class="img_slide_lesson">
-	   		<img src='<?php echo getImageLink($Intro_Image_ID, $Lang_ID); ?>' width="600" height="450" id="image" usemap="#Map">
+	   		<img "background:url('images/TV_FRAME.png')" src='<?php echo getImageLink($Intro_Image_ID, $Lang_ID); ?>' width="600" height="450" id="image" usemap="#Map">
 	   		<map name="Map" id="Map"> 
 				 <area shape="poly" coords="450,325" href="#" alt="right" />
   					<area shape="poly" coords="451,325,467,314,484,314,499,319,514,326,523,336,515,346,498,357,477,362,463,357,452,348" href="#" alt="right" id="right"/>
