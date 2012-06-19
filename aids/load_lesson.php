@@ -7,6 +7,11 @@
 		
     include 'common_files/db_connect.php';
 	echo'HI';
+	
+	$a = array();
+	$a[1][1][0] = "aa";
+	echo $a[1][1][0];
+		
 	// Global variables declaration
 	$intro_audio_link = "";
 	$intro_image_link = "";
@@ -70,18 +75,19 @@
 		$tp_result = mysql_query($tp_sql);
 		$j = 1;
 		while($tp_rows = mysql_fetch_array($tp_result)){
-			
+									
 			//Call the function to fetch all the Audio and Image Links.
 			$teaching_points[$current_teaching_point][$j][0] = getAudioLink($tp_rows['AudioID']);   	
 			$teaching_points[$current_teaching_point][$j][1] = getImageLink($tp_rows['ImageID'], $language_id);
 			$teaching_points[$current_teaching_point][$j][2] = $tp_rows['order'];
+			print_r($teaching_points);
 			$j++;
-			//echo "*";
+			echo "<br/><br/>";
 			
 		}
-				
+		print_r($teaching_points[1][1][1]);		
 		//Increment the current teaching point number.
-		echo  $current_teaching_point."<br/>"; 
+		//echo  $current_teaching_point."<br/>"; 
 		/*echo $teaching_points[$current_teaching_point][0]."<br/>";
 		echo $teaching_points[$current_teaching_point][1]."<br/>";
 		echo $teaching_points[$current_teaching_point][2]."<br/>";*/
@@ -89,8 +95,8 @@
 		$current_teaching_point++;		
 			
 	}	
-	
-		echo $teaching_points[1][2][1];	// End of While Loop.
+		
+		// End of While Loop.
 		
 	while($current_question_point<=$question_total_count) {
 			
@@ -137,6 +143,8 @@
 		$image_query_result = mysql_query($image_sql);
 		$image_rows = mysql_fetch_array($image_query_result);
 		$image_link = $image_rows['Name'];	
+		
+		echo "Image - ".$image_link;
 		return $image_link;
 	}
 		
