@@ -9,8 +9,7 @@
 	
 	function loadAllLinks() {
 		$current_teaching_point = 1;								// Specifies the current teaching point being pocessed.
-		$current_question_point = 1;								// Specifies the current qquestion beign processed.
-		$current_quiz_point = 1;									// Specifies the current quiz point being pocessed.
+		$current_question_point = 1;								// Specifies the current qquestion beign processed.		
 		$tp_total_count = 12;										// Total Teaching Points
 		$question_total_count = 20;									// Total Questions in the Lesson.
 		$language_id = 1;											// 1 = ENGLISH Language (Default)
@@ -61,6 +60,10 @@
 			$questions[4][$current_question_point] = getAudioLink($question_Positive);
 			$questions[5][$current_question_point] = getAudioLink($question_Negative);
 			$questions[6][$current_question_point] = $question_rows['tpname'];
+			
+			if (in_array($current_question_point,$people)) {
+				$questions[7][$current_question_point] = 1;
+			}
 			
 			//Increment the current teaching point number.
 			$current_teaching_point++;
