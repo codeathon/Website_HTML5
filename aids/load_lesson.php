@@ -50,8 +50,8 @@
 		$get_intro_slq = "SELECT * FROM tme_intro_table WHERE  `LanguageID` = '$language_id'" ;
 		$get_intro_result =  mysql_query($get_intro_slq);
 		$get_intro_rows = mysql_fetch_array($get_intro_result);			
-		$intro_audio_link = getAudioLink($get_intro_rows['AudioID']); 
-		$intro_image_link = getImageLink($get_intro_rows['ImageID'], $language_id);
+		$GLOBALS["intro_audio_link"] = getAudioLink($get_intro_rows['AudioID']); 
+		$GLOBALS["$intro_image_link"] = getImageLink($get_intro_rows['ImageID'], $language_id);
 			
 		// Declaring the variables. 		
 		$index = 0;							// Used in the second while loop. For loading all the quiz-es.
@@ -122,7 +122,7 @@
 		return $image_link;
 	}
 	   
-	echo  $language_code;  
+	echo  $intro_audio_link;  
 ?>
 <script type='text/javascript'>
 	
