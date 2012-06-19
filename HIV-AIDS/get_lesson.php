@@ -361,9 +361,7 @@
 	<center>  		
   	
 	        	
-    	<div class="img_slide_lesson">
-			<img src = '/images/TV_FRAME.png' class="under">
-	   		<img src='<?php echo getImageLink($Intro_Image_ID, $Lang_ID); ?>' width="500" height="350" id="image" usemap="#Map" class="over">
+    	<div class="img_slide_lesson"><img src='<?php echo getImageLink($Intro_Image_ID, $Lang_ID); ?>' width="500" height="350" id="image" usemap="#Map" class="over">
 	   		<map name="Map" id="Map"> 
 				 <area shape="poly" coords="450,325" href="#" alt="right" />
   					<area shape="poly" coords="451,325,467,314,484,314,499,319,514,326,523,336,515,346,498,357,477,362,463,357,452,348" href="#" alt="right" id="right"/>
@@ -386,7 +384,7 @@
 	      			HTML5 audio not supported
 				</audio>
 			</div>
-    		<button id="play" onclick="PlayIntro();"> <img src="images/play_icon.png" width="128" height="128" alt="" id=""/> </button>
+    		<button id="play" onClick="PlayIntro();"> <img src="images/play_icon.png" width="128" height="128" alt="" id=""/> </button>
     		
     	</div> </center>
     <br/>	
