@@ -7,6 +7,11 @@
 		
     include 'common_files/db_connect.php';
 	echo'HI';
+	
+	$a = array();
+	$a[0][0][1] = "x";
+	echo $a[0][0][1];
+		
 	// Global variables declaration
 	$intro_audio_link = "";
 	$intro_image_link = "";
@@ -89,8 +94,8 @@
 		$current_teaching_point++;		
 			
 	}	
-	
-		echo $teaching_points[1][2][1];	// End of While Loop.
+		
+		// End of While Loop.
 		
 	while($current_question_point<=$question_total_count) {
 			
