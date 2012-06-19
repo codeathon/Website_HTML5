@@ -115,7 +115,7 @@
 				<div class="content" style="cursor:pointer">
 					<img alt="logo" src="images/aids-ribbon.png" id="label2" height="130" width="140">
 					<br/> <center> 
-					  <p><b> HIV / AIDS Rags</b>
+					  <p><b> HIV / AIDS Lang</b>
 				      </p>
 					  <p><span class="clear"><a href="etest1/test.php">Extra Test</a></span></p>
 					</center>
