@@ -347,7 +347,7 @@
 	.under
 	{
 	position:absolute;
-	left:100px;
+	left:400px;
 	top:100px;
 	z-index:-1;
 	}
@@ -355,7 +355,7 @@
 	.over
 	{
 	position:absolute;
-	left:100px;
+	left:400px;
 	top:100px;
 	z-index:-1;
 	}
