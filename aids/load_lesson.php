@@ -63,12 +63,12 @@
 			
 			if (in_array($current_question_point,$people)) {
 				$questions[7][$current_question_point] = 1;			// 1 - Question appears in the quiz.
+			}else {			
+				$questions[7][$current_question_point] = 0;			// 0 - Question does not appear in the quiz.
 			}
-			
-			$questions[7][$current_question_point] = 0;				// 0 - Question does not appear in the quiz.
-			
+						
 			//Increment the current teaching point number.
-			$current_teaching_point++;
+			$current_question_point++;
 			
 		}
 		
