@@ -60,7 +60,7 @@
 	$index = 0;							// Used in the second while loop. For loading all the quiz-es.
 		
 	echo $current_teaching_point."5<br/> *";
-	echo $tp_total_count."<br/>";
+	echo $tp_total_count."<br/>+";
 				
 	while($current_teaching_point<=$tp_total_count) {
 				
