@@ -16,11 +16,9 @@
 		 return false;
 		});	
    </script>
-   
-   
-
-	
-	</head>
+   <style type=text/css>
+	select {font-size:20pt;width:250pt}
+   </style>
 <body>
 	<div id="top-ribbon"> </div> <div class="clear"></div>
 		<div id="logo-bar"> </div>
