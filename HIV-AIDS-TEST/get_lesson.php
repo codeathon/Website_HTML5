@@ -148,6 +148,7 @@
 					que_imagelist[index++] = '<?php echo getImageLink($q_ImageID, $Lang_ID); ?>';					
 					
 		<?php	} // END of Quiz Portion - While Loop. ?>
+	highlight(up_question);
 		
 	}
 	
@@ -336,6 +337,16 @@
 			 }
 		}	 	
 	 }	
+
+
+	function highlight(idname){
+		$('area#idname').maphilight();
+		
+
+
+	}
+
+
 	</script>
 	
 	</center>	
