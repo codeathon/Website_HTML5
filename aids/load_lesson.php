@@ -79,7 +79,6 @@
 		
 		}
 				
-		echo $teaching_points[1][2][1];
 		//Increment the current teaching point number.
 		echo  $current_teaching_point."<br/>"; 
 		/*echo $teaching_points[$current_teaching_point][0]."<br/>";
@@ -88,7 +87,9 @@
 		
 		$current_teaching_point++;		
 			
-	}		// End of While Loop.
+	}	
+	
+		echo $teaching_points[1][2][1];	// End of While Loop.
 		
 	while($current_question_point<=$question_total_count) {
 			
