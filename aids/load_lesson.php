@@ -51,7 +51,7 @@
 	// Declaring the variables. 		
 	$index = 0;							// Used in the second while loop. For loading all the quiz-es.
 		
-	echo $index."5<br/>";
+	echo $current_teaching_point."5<br/>";
 	echo $tp_total_count."<br/>";
 				
 	while($current_teaching_point<=$tp_total_count) {
@@ -72,7 +72,9 @@
 		$teaching_points[$current_teaching_point][2] = $tp_rows['order'];
 		
 		//Increment the current teaching point number.
+		echo  $current_teaching_point."2<br/>"; 
 		$current_teaching_point++;
+		
 			
 	}		// End of While Loop.
 		
@@ -124,7 +126,7 @@
 		return $image_link;
 	}
 		
-	echo  $teaching_points[2][0]."2<br/>";  
+	 
 ?>
 <script type='text/javascript'>
 	
