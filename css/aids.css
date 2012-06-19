@@ -10,5 +10,19 @@ audio {
 	margin-left:-20px;
 	
 }
+.under
+{
+position:absolute;
+left:0px;
+top:0px;
+z-index:-1;
+}
+.over
+{
+position:absolute;
+left:40px;
+top:10px;
+z-index:-1;
+}
 
 
