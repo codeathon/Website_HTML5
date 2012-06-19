@@ -355,8 +355,8 @@
 	.over
 	{
 	position:absolute;
-	left:300px;
-	top:150px;
+	left:350px;
+	top:200px;
 	z-index:-1;
 	}
 	</style> </head><body>
