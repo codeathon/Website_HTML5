@@ -30,16 +30,16 @@
 		</a>
 	</div>
 
-
-<form action="">
-<select name="cars">
-<option value="volvo">Volvo</option>
-<option value="saab">Saab</option>
-<option value="fiat" selected="selected">Fiat</option>
-<option value="audi">Audi</option>
-</select>
-</form>
-
+	<center>
+	<form action="">
+		<select name="cars">
+			<option value="volvo">Volvo</option>
+			<option value="saab">Saab</option>
+			<option value="fiat" selected="selected">Fiat</option>
+			<option value="audi">Audi</option>
+		</select>
+	</form>
+	</center>
  
 <!-- The following JQuery is used to fetch the anchor tag in the div element and redirect the browser to that location. -->
   
