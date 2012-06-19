@@ -31,13 +31,17 @@
 			<img alt="logo" src="images/logo_small.png" id="logo-top" height="85" width="140">   
 		</a>
 		
-	<div class="clear"><a href="etest/test.php">Extra Test</a></div>
+	<div class="clear"></div>
 	<div class="grid_2 prefix_0 suffix_2">
 		<div class="lesson_label">
 			<div class="shadow1">
 				<div class="content" style="cursor:pointer">
 					<img alt="logo" src="images/aids-ribbon.png" id="label1" height="120" width="140">
-					<br/> <center> <b> HIV / AIDS Demo 1</b>
+					<br/> <center> 
+					  <p><b> HIV / AIDS Demo 1</b>
+				      </p>
+					  <p>&nbsp;</p>
+					  <p><span class="clear"><a href="etest/test.php">Extra Test</a></span></p>
 					</center>
 					<a href="hiv_aids_home.php"></a>
 				</div>
