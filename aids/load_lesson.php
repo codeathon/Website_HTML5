@@ -82,7 +82,7 @@
 			$teaching_points[$current_teaching_point][$j][2] = $tp_rows['order'];
 			print_r($teaching_points);
 			$j++;
-			//echo "*";
+			echo "<br/><br/>";
 			
 		}
 		print_r($teaching_points[1][1][1]);		
