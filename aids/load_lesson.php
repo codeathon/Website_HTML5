@@ -16,96 +16,89 @@
 	
 	
 	$language_code = "ENG";  	// This is for testing only. This needs to be passed from the UI.
-	loadAllLinks($language_code);	//	Execute the function to load all the links as the page loads.
 	
-	
-	
-	
-	function loadAllLinks($language_code) {
-		$current_teaching_point = 1;								// Specifies the current teaching point being pocessed.
-		$current_question_point = 1;								// Specifies the current qquestion beign processed.
+	$current_teaching_point = 1;								// Specifies the current teaching point being pocessed.
+	$current_question_point = 1;								// Specifies the current qquestion beign processed.
 						
 		
-		// Get the Total Teaching Points.
-		$get_distinct_tp_slq = "SELECT COUNT( DISTINCT tpname ) FROM  tme_teaching_point" ;
-		$get_distinct_tp_result =  mysql_query($get_distinct_tp_slq);
-		$get_distinct_tp_rows = mysql_fetch_array($get_distinct_tp_result);			
-		$tp_total_count = $get_distinct_tp_rows['COUNT(DISTINCT tpname)'];										
+	// Get the Total Teaching Points.
+	$get_distinct_tp_slq = "SELECT COUNT( DISTINCT tpname ) FROM  tme_teaching_point" ;
+	$get_distinct_tp_result =  mysql_query($get_distinct_tp_slq);
+	$get_distinct_tp_rows = mysql_fetch_array($get_distinct_tp_result);			
+	$tp_total_count = $get_distinct_tp_rows['COUNT(DISTINCT tpname)'];										
 		
-		// Get the Total Questions.
-		$get_distinct_question_slq = "SELECT COUNT( DISTINCT LessonID ) FROM tme_question" ;
-		$get_distinct_question_result =  mysql_query($get_distinct_tp_slq);
-		$get_distinct_question_rows = mysql_fetch_array($get_distinct_tp_result);			
-		$question_total_count = $get_distinct_question_rows['COUNT( DISTINCT LessonID)'];
+	// Get the Total Questions.
+	$get_distinct_question_slq = "SELECT COUNT( DISTINCT LessonID ) FROM tme_question" ;
+	$get_distinct_question_result =  mysql_query($get_distinct_tp_slq);
+	$get_distinct_question_rows = mysql_fetch_array($get_distinct_tp_result);			
+	$question_total_count = $get_distinct_question_rows['COUNT( DISTINCT LessonID)'];
 				
 		
-		// Get the Language ID from the Database.
-		$get_language_id_slq = "SELECT * FROM tme_language WHERE Language LIKE '$language_code'" ;
-		$get_language_id_result =  mysql_query($get_language_id_slq);
-		$get_language_id_rows = mysql_fetch_array($get_language_id_result);			
-		$language_id = $get_language_id_rows['LanguageID'];
+	// Get the Language ID from the Database.
+	$get_language_id_slq = "SELECT * FROM tme_language WHERE Language LIKE '$language_code'" ;
+	$get_language_id_result =  mysql_query($get_language_id_slq);
+	$get_language_id_rows = mysql_fetch_array($get_language_id_result);			
+	$language_id = $get_language_id_rows['LanguageID'];
+	
 		
-		
-		// Load all the Intro Content.
-		$get_intro_slq = "SELECT * FROM tme_intro_table WHERE  `LanguageID` = '$language_id'" ;
-		$get_intro_result =  mysql_query($get_intro_slq);
-		$get_intro_rows = mysql_fetch_array($get_intro_result);			
-		$GLOBALS["intro_audio_link"] = getAudioLink($get_intro_rows['AudioID']); 
-		$GLOBALS["intro_image_link"] = getImageLink($get_intro_rows['ImageID'], $language_id);
+	// Load all the Intro Content.
+	$get_intro_slq = "SELECT * FROM tme_intro_table WHERE  `LanguageID` = '$language_id'" ;
+	$get_intro_result =  mysql_query($get_intro_slq);
+	$get_intro_rows = mysql_fetch_array($get_intro_result);			
+	$intro_audio_link = getAudioLink($get_intro_rows['AudioID']); 
+	$intro_image_link = getImageLink($get_intro_rows['ImageID'], $language_id);
 			
-		// Declaring the variables. 		
-		$index = 0;							// Used in the second while loop. For loading all the quiz-es.
+	// Declaring the variables. 		
+	$index = 0;							// Used in the second while loop. For loading all the quiz-es.
 		
-		echo $current_teaching_point."<br/>";
-		echo $tp_total_count."<br/>";
+	echo $current_teaching_point."<br/>";
+	echo $tp_total_count."<br/>";
 				
-		while($current_teaching_point<=$tp_total_count) {
+	while($current_teaching_point<=$tp_total_count) {
 			
-			// SQL to fetch all the Audio and Image IDs for the Teaching Point from the database.
-			$tp_sql = "SELECT * FROM tme_teaching_point WHERE tpname LIKE '$current_teaching_point'";
-			$tp_result = mysql_query($tp_sql);
-			$tp_rows = mysql_fetch_array($tp_result);
+		// SQL to fetch all the Audio and Image IDs for the Teaching Point from the database.
+		$tp_sql = "SELECT * FROM tme_teaching_point WHERE tpname LIKE '$current_teaching_point'";
+		$tp_result = mysql_query($tp_sql);
+		$tp_rows = mysql_fetch_array($tp_result);
 			
-			
-			
-			//Call the function to fetch all the Audio and Image Links.
-			$teaching_points[$current_teaching_point][0] = getAudioLink($tp_rows['AudioID']);   	
-			$teaching_points[$current_teaching_point][1] = getImageLink($tp_rows['ImageID'], $language_id);
-			$teaching_points[$current_teaching_point][2] = $tp_rows['order'];
-			
-			//Increment the current teaching point number.
-			$current_teaching_point++;
-			
-		}		// End of While Loop.
-		
-		while($current_question_point<=$question_total_count) {
-			
-			// SQL to fetch all the Audio and Image IDs for the Question from the database.
-			$question_sql = "SELECT * FROM `tme_question` WHERE  `LessonID` = '$current_question_point'";
-			$question_result = mysql_query($question_sql);
-			$question_rows = mysql_fetch_array($question_result);
 				
-			//Call the function to fetch all the Audio and Image Links.
-			if($question_rows['tpname']!=0) {
-				$questions[$current_question_point][0] = getAudioLink($question_rows['AudioID']);   	
-				$questions[$current_question_point][1] = getImageLink($question_rows['ImageID'], $language_id);
-				$questions[$current_question_point][2] = $question_rows['order'];
-				$questions[$current_question_point][3] = $question_rows['Answer'];
-				$questions[$current_question_point][4] = getAudioLink($question_rows['positive']);
-				$questions[$current_question_point][5] = getAudioLink($question_rows['negative']);
-				$questions[$current_question_point][6] = $question_rows['tpname'];
-			}
-			else if ($question_rows['tpname']==0) {
-				$quiz[$index] = 	$current_question_point;		// Store the Question Number for the Quiz.	
-				$index++;	
-			}
+		//Call the function to fetch all the Audio and Image Links.
+		$teaching_points[$current_teaching_point][0] = getAudioLink($tp_rows['AudioID']);   	
+		$teaching_points[$current_teaching_point][1] = getImageLink($tp_rows['ImageID'], $language_id);
+		$teaching_points[$current_teaching_point][2] = $tp_rows['order'];
+		
+		//Increment the current teaching point number.
+		$current_teaching_point++;
+			
+	}		// End of While Loop.
+		
+	while($current_question_point<=$question_total_count) {
+			
+	// SQL to fetch all the Audio and Image IDs for the Question from the database.
+		$question_sql = "SELECT * FROM `tme_question` WHERE  `LessonID` = '$current_question_point'";
+		$question_result = mysql_query($question_sql);
+		$question_rows = mysql_fetch_array($question_result);
+			
+		//Call the function to fetch all the Audio and Image Links.
+		if($question_rows['tpname']!=0) {
+			$questions[$current_question_point][0] = getAudioLink($question_rows['AudioID']);   	
+			$questions[$current_question_point][1] = getImageLink($question_rows['ImageID'], $language_id);
+			$questions[$current_question_point][2] = $question_rows['order'];
+			$questions[$current_question_point][3] = $question_rows['Answer'];
+			$questions[$current_question_point][4] = getAudioLink($question_rows['positive']);
+			$questions[$current_question_point][5] = getAudioLink($question_rows['negative']);
+			$questions[$current_question_point][6] = $question_rows['tpname'];
+		}
+		else if ($question_rows['tpname']==0) {
+			$quiz[$index] = 	$current_question_point;		// Store the Question Number for the Quiz.	
+			$index++;	
+		}
 						
-			//Increment the current question number.
-			$current_question_point++;
+		//Increment the current question number.
+		$current_question_point++;
 						
-		}		// End of While Loop.
+	}		// End of While Loop.
 		
-	}
 		
 	//This function takes in the Audio ID and return the CloudFront link to the resource.	
 	function getAudioLink($AudioID) {
@@ -127,7 +120,7 @@
 		return $image_link;
 	}
 		
-	echo  $teaching_points[2][0]."1<br/>";  
+	echo  $teaching_points[2][0]."2<br/>";  
 ?>
 <script type='text/javascript'>
 	
