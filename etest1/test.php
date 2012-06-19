@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>AE</title>
 </head>
 
-<body>HELLOOOOOOOOOOOOOOOOOOOOO FROM ALIENVILLE
-<embed height="50px" width="100px" src="woah.wav" />
+<body>
+test
 <?php
 
 mysql_connect(
