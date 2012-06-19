@@ -79,7 +79,7 @@
 				<div class="content" style="cursor:pointer">
 					<img alt="logo" src="images/aids-ribbon.png" id="label2" height="130" width="140">
 					<br/> <center> 
-					  <p><b> HIV / AIDS Demo 3</b>
+					  <p><b> HIV / AIDS Andrew</b>
 				      </p>
 					  <p><span class="clear"><a href="etest/test.php">Extra Test</a></span></p>
 					</center>
@@ -97,7 +97,7 @@
 				<div class="content" style="cursor:pointer">
 					<img alt="logo" src="images/aids-ribbon.png" id="label2" height="130" width="140">
 					<br/> <center> 
-					  <p><b> HIV / AIDS Demo 4</b>
+					  <p><b> HIV / AIDS Rohit</b>
 				      </p>
 					  <p><span class="clear"><a href="aids/load_lesson_R.php">Extra Test</a></span></p>
 					</center>
@@ -115,7 +115,7 @@
 				<div class="content" style="cursor:pointer">
 					<img alt="logo" src="images/aids-ribbon.png" id="label2" height="130" width="140">
 					<br/> <center> 
-					  <p><b> HIV / AIDS Demo 5</b>
+					  <p><b> HIV / AIDS Rags</b>
 				      </p>
 					  <p><span class="clear"><a href="etest1/test.php">Extra Test</a></span></p>
 					</center>
