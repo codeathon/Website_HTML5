@@ -348,7 +348,7 @@
 	{
 	position:absolute;
 	left:100px;
-	top:50px;
+	top:100px;
 	z-index:-1;
 	}
 
@@ -356,7 +356,7 @@
 	{
 	position:absolute;
 	left:100px;
-	top:50px;
+	top:100px;
 	z-index:-1;
 	}
 	</style> </head><body>
