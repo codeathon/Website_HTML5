@@ -9,7 +9,7 @@
 	echo'HI';
 	
 	$a = array();
-	$a[1][1][0] = "x";
+	$a[1][1][0] = "aa";
 	echo $a[1][1][0];
 		
 	// Global variables declaration
