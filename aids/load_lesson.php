@@ -154,9 +154,11 @@
 	
 	function loadTeachingPoints(){
 		var index = 0;			
-													
-		tp_playlist[index] = '<?php echo  ?>';
-		tp_imagelist[index++] = '<?php echo getImageLink($tp_ImageID, $Lang_ID); ?>';
+				
+		while(<?php echo $total_questions[1]; ?>) {											
+			tp_playlist[index] = '<?php echo  ?>';
+			tp_imagelist[index++] = '<?php echo getImageLink($tp_ImageID, $Lang_ID); ?>';
+		}
 					
 		tp_playlist[index] = '<?php echo $whoosh_transition_audio_link; ?>';
 		tp_imagelist[index++] = '<?php echo $whoosh_transition_image_link; ?>';	
