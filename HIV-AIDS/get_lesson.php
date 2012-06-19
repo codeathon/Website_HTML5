@@ -338,15 +338,32 @@
 			 }
 		}	 	
 	 }	
-	</script>
-	
-	</center>	
+	</script>	
 	<?php include 'common_files/top_ribbon.php'; ?>
+	<html><head>
+	<style type="text/css">
+	.under
+	{
+	position:absolute;
+	left:300px;
+	top:150px;
+	z-index:-1;
+	}
+
+	.over
+	{
+	position:absolute;
+	left:368px;
+	top:200px;
+	z-index:-1;
+	}
+	</style> </head>
 	<center>  		
-  		 
+  	
 	        	
     	<div class="img_slide_lesson">
-	   		<img src='<?php echo getImageLink($Intro_Image_ID, $Lang_ID); ?>' width="600" height="450" id="image" usemap="#Map">
+			<img src = '/images/TV_FRAME.png' class="under">
+	   		<img src='<?php echo getImageLink($Intro_Image_ID, $Lang_ID); ?>' width="500" height="350" id="image" usemap="#Map" class="over">
 	   		<map name="Map" id="Map"> 
 				 <area shape="poly" coords="450,325" href="#" alt="right" />
   					<area shape="poly" coords="451,325,467,314,484,314,499,319,514,326,523,336,515,346,498,357,477,362,463,357,452,348" href="#" alt="right" id="right"/>
@@ -371,11 +388,12 @@
 			</div>
     		<button id="play" onclick="PlayIntro();"> <img src="images/play_icon.png" width="128" height="128" alt="" id=""/> </button>
     		
-    	</div> 
+    	</div> </center>
     <br/>	
     
    </div>    
    <div id="common_div" style="width:1px; height:1px; overflow:hidden;"></div>
+   </html>
     <!-- I have added these div for testing. These links have to be replaced with the actual image.-->	
     	
     
