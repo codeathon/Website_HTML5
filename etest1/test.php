@@ -6,7 +6,7 @@
 </head>
 
 <body>
-HELLOOOO FROM ALIENVILLE
+test
 <?php
 
 mysql_connect(
