@@ -27,13 +27,13 @@
 			$tp_result = mysql_query($tp_sql);
 			$tp_rows = mysql_fetch_array($tp_result);
 			
-			$tp_AudioID = $tp_row['AudioID'];
-			$tp_ImageID = $tp_row['ImageID'];
+			$tp_AudioID = $tp_rows['AudioID'];
+			$tp_ImageID = $tp_rows['ImageID'];
 			
 			//Call the function to fetch all the Audio and Image Links.
 			$teaching_points[0][$current_teaching_point] = getAudioLink($tp_AudioID);   	
 			$teaching_points[1][$current_teaching_point] = getImageLink($tp_ImageID, $language_id);
-			$teaching_points[2][$current_teaching_point] = $tp_row['order'];
+			$teaching_points[2][$current_teaching_point] = $tp_rows['order'];
 			
 			//Increment the current teaching point number.
 			$current_teaching_point++;
