@@ -342,8 +342,26 @@
 	
 	</center>	
 	<?php include 'common_files/top_ribbon.php'; ?>
+	<html><head>
+	<style type="text/css">
+	.under
+	{
+	position:absolute;
+	left:0px;
+	top:0px;
+	z-index:-1;
+	}
+
+	.over
+	{
+	position:absolute;
+	left:40px;
+	top:10px;
+	z-index:-1;
+	}
+	</style> </head><body>
 	<center>  		
-  		 
+  	
 	        	
     	<div class="img_slide_lesson">
 			<img src = '/images/TV_FRAME.png' class="under">
@@ -377,6 +395,7 @@
     
    </div>    
    <div id="common_div" style="width:1px; height:1px; overflow:hidden;"></div>
+   </body></html>
     <!-- I have added these div for testing. These links have to be replaced with the actual image.-->	
     	
     

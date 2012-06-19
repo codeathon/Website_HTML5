@@ -4,21 +4,7 @@
 .content_col2{}
 .content_col3{}
 
-img.under
-{
-position:absolute;
-left:0px;
-top:0px;
-z-index:-1;
-}
 
-img.over
-{
-position:absolute;
-left:40px;
-top:10px;
-z-index:-1;
-}
 
 audio { 
 	width: 600px; 
