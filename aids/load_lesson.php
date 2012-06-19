@@ -9,8 +9,8 @@
 	echo'HI';
 	
 	$a = array();
-	$a[0][0][1] = "x";
-	echo $a[0][0][1];
+	$a[1][1][0] = "x";
+	echo $a[1][1][0];
 		
 	// Global variables declaration
 	$intro_audio_link = "";
