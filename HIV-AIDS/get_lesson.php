@@ -378,7 +378,7 @@
   
 			</map>
 		    
-		    </div> </center>
+		    </div> 
 	    
 	    <div class="audio_lesson"> 	
 	    	<div class="audio_js_player" style="display: none;">
@@ -388,7 +388,7 @@
 			</div>
     		<button id="play" onclick="PlayIntro();"> <img src="images/play_icon.png" width="128" height="128" alt="" id=""/> </button>
     		
-    	</div> 
+    	</div> </center>
     <br/>	
     
    </div>    
