@@ -51,10 +51,14 @@
 	// Declaring the variables. 		
 	$index = 0;							// Used in the second while loop. For loading all the quiz-es.
 		
-	echo $current_teaching_point."<br/>";
+	echo $current_teaching_point."5<br/>";
 	echo $tp_total_count."<br/>";
 				
 	while($current_teaching_point<=$tp_total_count) {
+		
+		//Reference to the Global Variables.
+		$teaching_points &= $_GLOBALS['teaching_points'];
+		$teaching_points &= $_GLOBALS['current_teaching_point'];
 			
 		// SQL to fetch all the Audio and Image IDs for the Teaching Point from the database.
 		$tp_sql = "SELECT * FROM tme_teaching_point WHERE tpname LIKE '$current_teaching_point'";
