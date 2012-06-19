@@ -394,7 +394,7 @@
     <br/>	
     
    </div>    
-   <div id="common_div" style="width:1px; height:1px; overflow:hidden;"></div>
+   <div id="common_div" style="width:1px; height:1px; overflow:hidden;"></div><center>
    </html>
     <!-- I have added these div for testing. These links have to be replaced with the actual image.-->	
     	
