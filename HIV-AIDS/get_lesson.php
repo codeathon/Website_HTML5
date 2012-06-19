@@ -359,7 +359,7 @@
 	top:200px;
 	z-index:-1;
 	}
-	</style> </head><body>
+	</style> </head>
 	<center>  		
   	
 	        	
@@ -395,7 +395,7 @@
     
    </div>    
    <div id="common_div" style="width:1px; height:1px; overflow:hidden;"></div>
-   </body></html>
+   </html>
     <!-- I have added these div for testing. These links have to be replaced with the actual image.-->	
     	
     
