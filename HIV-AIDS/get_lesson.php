@@ -347,14 +347,16 @@
 	.under
 	{
 	position:center;
-
+	left:0px;
+	top:50px;
 	z-index:-1;
 	}
 
 	.over
 	{
 	position:center;
-
+	left:100px;
+	top:50px;
 	z-index:-1;
 	}
 	</style> </head><body>
