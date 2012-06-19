@@ -338,9 +338,7 @@
 			 }
 		}	 	
 	 }	
-	</script>
-	
-	</center>	
+	</script>	
 	<?php include 'common_files/top_ribbon.php'; ?>
 	<html><head>
 	<style type="text/css">
@@ -380,7 +378,7 @@
   
 			</map>
 		    
-		    </div> 
+		    </div> </center>
 	    
 	    <div class="audio_lesson"> 	
 	    	<div class="audio_js_player" style="display: none;">
@@ -394,7 +392,7 @@
     <br/>	
     
    </div>    
-   <div id="common_div" style="width:1px; height:1px; overflow:hidden;"></div><center>
+   <div id="common_div" style="width:1px; height:1px; overflow:hidden;"></div>
    </html>
     <!-- I have added these div for testing. These links have to be replaced with the actual image.-->	
     	
