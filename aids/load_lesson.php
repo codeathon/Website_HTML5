@@ -7,18 +7,54 @@
 		
     include 'common_files/db_connect.php';
 	
-	function loadAllLinks() {
+	// Global variables declaration
+	$intro_audio_link = "";
+	$intro_image_link = "";
+	$teaching_points = array();									// To store all the teaching point links.
+	$questions = array();										// To store all the question links.
+	$quiz = array();											// To store all the quiz links.
+	
+	
+	$language_code = "ENG";  	// This is for testing only. This needs to be passed from the UI.
+	loadAllLinks($language_code);	//	Execute the function to load all the links as the page loads.
+	
+	
+	
+	
+	function loadAllLinks($language_code) {
 		$current_teaching_point = 1;								// Specifies the current teaching point being pocessed.
-		$current_question_point = 1;								// Specifies the current qquestion beign processed.		
-		$tp_total_count = 12;										// Total Teaching Points
-		$question_total_count = 20;									// Total Questions in the Lesson.
-		$language_id = 1;											// 1 = ENGLISH Language (Default)
+		$current_question_point = 1;								// Specifies the current qquestion beign processed.
+						
 		
-		$quiz_numbers = array(3,4,5,7,9,11,13,14,18,21);			// This array specifies the question numbers that we are using for quiz.
-		$teaching_points = array();									// To store all the teaching point links.
-		$questions = array();										// To store all the question links.
-		$quiz = array();											// To store all the quiz links.
+		// Get the Total Teaching Points.
+		$get_distinct_tp_slq = "SELECT COUNT( DISTINCT tpname ) FROM  tme_teaching_point" ;
+		$get_distinct_tp_result =  mysql_query($get_distinct_tp_slq);
+		$get_distinct_tp_rows = mysql_fetch_array($get_distinct_tp_result);			
+		$tp_total_count = $get_distinct_tp_rows['COUNT(DISTINCT tpname)'];										
 		
+		// Get the Total Questions.
+		$get_distinct_question_slq = "SELECT COUNT( DISTINCT LessonID ) FROM tme_question" ;
+		$get_distinct_question_result =  mysql_query($get_distinct_tp_slq);
+		$get_distinct_question_rows = mysql_fetch_array($get_distinct_tp_result);			
+		$question_total_count = $get_distinct_question_rows['COUNT( DISTINCT LessonID)'];
+				
+		
+		// Get the Language ID from the Database.
+		$get_language_id_slq = "SELECT * FROM tme_language WHERE Language LIKE '$language_code'" ;
+		$get_language_id_result =  mysql_query($get_language_id_slq);
+		$get_language_id_rows = mysql_fetch_array($get_language_id_result);			
+		$language_id = $get_language_id_rows['LanguageID'];
+		
+		
+		// Load all the Intro Content.
+		$get_intro_slq = "SELECT * FROM tme_intro_table WHERE  `LanguageID` = '$language_id'" ;
+		$get_intro_result =  mysql_query($get_intro_slq);
+		$get_intro_rows = mysql_fetch_array($get_intro_result);			
+		$intro_audio_link = getAudioLink($get_intro_rows['AudioID']); 
+		$intro_image_link = getImageLink($get_intro_rows['ImageID'], $language_id);
+			
+		// Declaring the variables. 		
+		$index = 0;							// Used in the second while loop. For loading all the quiz-es.
 				
 		while($current_teaching_point<=$tp_total_count) {
 			
@@ -27,17 +63,15 @@
 			$tp_result = mysql_query($tp_sql);
 			$tp_rows = mysql_fetch_array($tp_result);
 			
-			$tp_AudioID = $tp_rows['AudioID'];
-			$tp_ImageID = $tp_rows['ImageID'];
-			
 			//Call the function to fetch all the Audio and Image Links.
-			$teaching_points[0][$current_teaching_point] = getAudioLink($tp_AudioID);   	
-			$teaching_points[1][$current_teaching_point] = getImageLink($tp_ImageID, $language_id);
+			$teaching_points[0][$current_teaching_point] = getAudioLink($tp_rows['AudioID']);   	
+			$teaching_points[1][$current_teaching_point] = getImageLink($tp_rows['ImageID'], $language_id);
 			$teaching_points[2][$current_teaching_point] = $tp_rows['order'];
 			
 			//Increment the current teaching point number.
 			$current_teaching_point++;
-		}
+			
+		}		// End of While Loop.
 		
 		while($current_question_point<=$question_total_count) {
 			
@@ -45,37 +79,26 @@
 			$question_sql = "SELECT * FROM `tme_question` WHERE  `LessonID` = '$current_question_point'";
 			$question_result = mysql_query($question_sql);
 			$question_rows = mysql_fetch_array($question_result);
-						
-			$question_AudioID = $question_rows['AudioID'];
-			$question_ImageID = $question_rows['ImageID'];
-			$question_Positive = $question_rows['positive'];
-			$question_Negative = $question_rows['negative'];
-			
-			
+				
 			//Call the function to fetch all the Audio and Image Links.
-			$questions[0][$current_question_point] = getAudioLink($question_AudioID);   	
-			$questions[1][$current_question_point] = getImageLink($question_ImageID, $language_id);
-			$questions[2][$current_question_point] = $question_rows['order'];
-			$questions[3][$current_question_point] = $question_rows['Answer'];
-			$questions[4][$current_question_point] = getAudioLink($question_Positive);
-			$questions[5][$current_question_point] = getAudioLink($question_Negative);
-			$questions[6][$current_question_point] = $question_rows['tpname'];
-			
-			if (in_array($current_question_point,$people)) {
-				$questions[7][$current_question_point] = 1;			// 1 - Question appears in the quiz.
-			}else {			
-				$questions[7][$current_question_point] = 0;			// 0 - Question does not appear in the quiz.
+			if($question_rows['tpname']!=0) {
+				$questions[0][$current_question_point] = getAudioLink($question_rows['AudioID']);   	
+				$questions[1][$current_question_point] = getImageLink($question_rows['ImageID'], $language_id);
+				$questions[2][$current_question_point] = $question_rows['order'];
+				$questions[3][$current_question_point] = $question_rows['Answer'];
+				$questions[4][$current_question_point] = getAudioLink($question_rows['positive']);
+				$questions[5][$current_question_point] = getAudioLink($question_rows['negative']);
+				$questions[6][$current_question_point] = $question_rows['tpname'];
+			}
+			else if ($question_rows['tpname']==0) {
+				$quiz[$index] = 	$current_question_point;		// Store the Question Number for the Quiz.	
+				$index++;	
 			}
 						
 			//Increment the current teaching point number.
 			$current_question_point++;
-			
-		}
-		
-		
-		$ques_rows = mysql_fetch_array($ques_result);
-		
-		
+						
+		}		// End of While Loop.
 		
 	}
 		
@@ -87,6 +110,7 @@
 		$audio_link = $audio_rows['Name'];
 		return $audio_link;
 	}
+
 	
 	
 	//This function takes in the Image ID and return the CloudFront link to the resource.
@@ -98,4 +122,48 @@
 		return $image_link;
 	}
 	   
+	   
+?>
+<script type='text/javascript'>
+	
+</script>
+</center>	
+	<?php include 'common_files/top_ribbon.php'; ?>
+	<center>  		
+  		 
+	        	
+    	<div class="img_slide_lesson">
+	   		<img src='<?php echo $intro_image_link; ?>' width="600" height="450" id="image" usemap="#Map">
+	   		<map name="Map" id="Map"> 
+				 <area shape="poly" coords="450,325" href="#" alt="right" />
+  					<area shape="poly" coords="451,325,467,314,484,314,499,319,514,326,523,336,515,346,498,357,477,362,463,357,452,348" href="#" alt="right" id="right"/>
+  
+  					<area shape="poly" coords="436,421,424,406,413,387,409,370,424,351,437,356,447,354,456,362,462,373,456,397" href="#" alt="down"  id="down" />	  
+		    </map>
+		    
+		    <map name="Map2" id="Map2">
+  				<area shape="poly" coords="460,206,460,204,451,189,447,172,451,159,461,141,472,122,481,102,492,90,502,104,513,126,523,143,532,165,535,181,531,191,519,206,492,196" href="#" alt="Up" id="up_question"/>
+  
+  				<area shape="poly" coords="492,376,476,351,460,320,449,293,451,274,459,259,466,256,478,260,492,264,503,262,514,254,524,261,530,270,535,284,529,309,513,337" href="#" alt="Down" id="down_question"/>
+  
+			</map>
+		    
+		    </div> 
+	    
+	    <div class="audio_lesson"> 	
+	    	<div class="audio_js_player" style="display: none;">
+	      		<audio id="myaudio">
+	      			HTML5 audio not supported
+				</audio>
+			</div>
+    		<button id="play" onclick="PlayIntro();"> <img src="images/play_icon.png" width="128" height="128" alt="" id=""/> </button>
+    		
+    	</div> 
+    <br/>	
+    
+   </div>
+   
+<?php
+	// Closee all the database connections.
+	include 'common_files/db_close.php';
 ?>
