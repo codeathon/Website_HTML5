@@ -68,7 +68,6 @@
 					</center>
 					
 				
-				<a href="hiv_test3.php" />
 				</div>
 			</div>
 		</div>
