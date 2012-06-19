@@ -121,8 +121,7 @@
 		$image_link = $image_rows['Name'];	
 		return $image_link;
 	}
-	   
-	echo  $intro_audio_link."<br/>";
+		
 	echo  $intro_image_link;  
 ?>
 <script type='text/javascript'>
