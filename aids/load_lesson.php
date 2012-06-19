@@ -50,7 +50,7 @@
 	$get_language_id_result =  mysql_query($get_language_id_slq);
 	$get_language_id_rows = mysql_fetch_array($get_language_id_result);			
 	$language_id = $get_language_id_rows['LanguageID'];
-	
+	echo 
 		
 	// Load all the Intro Content.
 	if(!($get_intro_slq = "SELECT * FROM tme_intro_table WHERE  `LanguageID` = '$language_id'")) {
@@ -85,7 +85,7 @@
 			echo "<br/><br/>";
 			
 		}
-		print_r($teaching_points[1][1][0]);		
+		print_r($teaching_points[1][1][1]);		
 		//Increment the current teaching point number.
 		//echo  $current_teaching_point."<br/>"; 
 		/*echo $teaching_points[$current_teaching_point][0]."<br/>";
