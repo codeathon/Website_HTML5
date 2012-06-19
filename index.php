@@ -128,7 +128,7 @@
   </div>
   
  <br>
-	<a href="test3.php">LINK to Princess Zelda</a>
+	<a href="test3.php">Link to test3</a>
  </br> 
   
 <!-- The following JQuery is used to fetch the anchor tag in the div element and redirect the browser to that location. -->
@@ -148,4 +148,4 @@
 </body>
 </html>  
   
-  
+ 
