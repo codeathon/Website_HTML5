@@ -11,16 +11,19 @@
 		$current_teaching_point = 1;								// Specifies the current teaching point being pocessed.
 		$current_question_point = 1;								// Specifies the current qquestion beign processed.
 		$current_quiz_point = 1;									// Specifies the current quiz point being pocessed.
-		$tp_total_count = 12;										// Total Teaching Points
-		$question_total_count = 20;									// Total Questions in the Lesson.
-		$language_id = 1;											// 1 = ENGLISH Language (Default)
+		$language_id = 1;											// 1 = ENGLISH Language (Default) 
 		
 		$quiz_numbers = array(3,4,5,7,9,11,13,14,18,21);			// This array specifies the question numbers that we are using for quiz.
 		$teaching_points = array();									// To store all the teaching point links.
 		$questions = array();										// To store all the question links.
 		$quiz = array();											// To store all the quiz links.
 		
-				
+		$tp_total_count_sql = "SELECT COUNT(DISTINCT tpname) FROM tme_teaching_point";										// Total Teaching Points
+		$tp_total_count = mysql_query($tp_total_count_sql);
+		
+		$question_total_count_sql = "SELECT COUNT(DISTINCT "
+		$question_total_count = ;									// Total Questions in the Lesson.
+	
 		while($current_teaching_point<=$tp_total_count) {
 			
 			// SQL to fetch all the Audio and Image IDs for the Teaching Point from the database.
