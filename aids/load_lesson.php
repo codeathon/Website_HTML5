@@ -75,13 +75,12 @@
 		$tp_result = mysql_query($tp_sql);
 		$j = 1;
 		while($tp_rows = mysql_fetch_array($tp_result)){
-			
-			print_r($tp_rows);
-						
+									
 			//Call the function to fetch all the Audio and Image Links.
 			$teaching_points[$current_teaching_point][$j][0] = getAudioLink($tp_rows['AudioID']);   	
 			$teaching_points[$current_teaching_point][$j][1] = getImageLink($tp_rows['ImageID'], $language_id);
 			$teaching_points[$current_teaching_point][$j][2] = $tp_rows['order'];
+			print_r($teaching_points);
 			$j++;
 			//echo "*";
 			
