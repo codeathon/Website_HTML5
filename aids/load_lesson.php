@@ -51,7 +51,7 @@
 		$get_intro_result =  mysql_query($get_intro_slq);
 		$get_intro_rows = mysql_fetch_array($get_intro_result);			
 		$GLOBALS["intro_audio_link"] = getAudioLink($get_intro_rows['AudioID']); 
-		$GLOBALS["$intro_image_link"] = getImageLink($get_intro_rows['ImageID'], $language_id);
+		$GLOBALS["intro_image_link"] = getImageLink($get_intro_rows['ImageID'], $language_id);
 			
 		// Declaring the variables. 		
 		$index = 0;							// Used in the second while loop. For loading all the quiz-es.
