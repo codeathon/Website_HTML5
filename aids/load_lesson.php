@@ -10,9 +10,9 @@
 	// Global variables declaration
 	$intro_audio_link = "";
 	$intro_image_link = "";
-	$teaching_points = array();									// To store all the teaching point links.
-	$questions = array();										// To store all the question links.
-	$quiz = array();											// To store all the quiz links.
+	$teaching_points = array(array());									// To store all the teaching point links.
+	$questions = array(array());										// To store all the question links.
+	$quiz = array(array());											// To store all the quiz links.
 	
 	
 	$language_code = "ENG";  	// This is for testing only. This needs to be passed from the UI.
