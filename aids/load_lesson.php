@@ -6,7 +6,7 @@
 	//Used in TME Project
 		
     include 'common_files/db_connect.php';
-	
+	echo'HI';
 	// Global variables declaration
 	$intro_audio_link = "";
 	$intro_image_link = "";
