@@ -55,6 +55,9 @@
 			
 		// Declaring the variables. 		
 		$index = 0;							// Used in the second while loop. For loading all the quiz-es.
+		
+		echo $current_teaching_point."<br/>";
+		echo $tp_total_count."<br/>";
 				
 		while($current_teaching_point<=$tp_total_count) {
 			
@@ -62,6 +65,8 @@
 			$tp_sql = "SELECT * FROM tme_teaching_point WHERE tpname LIKE '$current_teaching_point'";
 			$tp_result = mysql_query($tp_sql);
 			$tp_rows = mysql_fetch_array($tp_result);
+			
+			
 			
 			//Call the function to fetch all the Audio and Image Links.
 			$teaching_points[$current_teaching_point][0] = getAudioLink($tp_rows['AudioID']);   	
