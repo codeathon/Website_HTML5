@@ -4,25 +4,27 @@
 .content_col2{}
 .content_col3{}
 
-audio { 
-	width: 600px; 
-	display: block;
-	margin-left:-20px;
-	
-}
-.under
+img.under
 {
 position:absolute;
 left:0px;
 top:0px;
 z-index:-1;
 }
-.over
+img.over
 {
 position:absolute;
 left:40px;
 top:10px;
 z-index:-1;
 }
+
+audio { 
+	width: 600px; 
+	display: block;
+	margin-left:-20px;
+	
+}
+
 
 

@@ -346,7 +346,7 @@
   		 
 	        	
     	<div class="img_slide_lesson">
-			<img src = '/images/TV_FRAME.png' class='under'>
+			<img src = '/images/TV_FRAME.png' class="under">
 	   		<img src='<?php echo getImageLink($Intro_Image_ID, $Lang_ID); ?>' width="600" height="450" id="image" usemap="#Map" class='over'>
 	   		<map name="Map" id="Map"> 
 				 <area shape="poly" coords="450,325" href="#" alt="right" />
