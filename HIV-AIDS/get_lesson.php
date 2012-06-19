@@ -355,7 +355,7 @@
 	.over
 	{
 	position:absolute;
-	left:350px;
+	left:365px;
 	top:200px;
 	z-index:-1;
 	}
