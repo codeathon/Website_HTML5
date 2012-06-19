@@ -59,8 +59,8 @@
 	// Declaring the variables. 		
 	$index = 0;							// Used in the second while loop. For loading all the quiz-es.
 		
-	echo $current_teaching_point."<br/> *";
-	echo $tp_total_count."<br/>+";
+	echo $current_teaching_point."<br/>";
+	echo $tp_total_count."<br/>";
 	echo $question_total_count;		
 		
 	while($current_teaching_point<=$tp_total_count) {
@@ -68,16 +68,24 @@
 		// SQL to fetch all the Audio and Image IDs for the Teaching Point from the database.
 		$tp_sql = "SELECT * FROM tme_teaching_point WHERE tpname LIKE '$current_teaching_point'";
 		$tp_result = mysql_query($tp_sql);
-		$tp_rows = mysql_fetch_array($tp_result);
+		$j = 1;
+		while($tp_rows = mysql_fetch_array($tp_result)){
 			
-				
-		//Call the function to fetch all the Audio and Image Links.
-		$teaching_points[$current_teaching_point][0] = getAudioLink($tp_rows['AudioID']);   	
-		$teaching_points[$current_teaching_point][1] = getImageLink($tp_rows['ImageID'], $language_id);
-		$teaching_points[$current_teaching_point][2] = $tp_rows['order'];
+			//Call the function to fetch all the Audio and Image Links.
+			$teaching_points[$current_teaching_point][$j][0] = getAudioLink($tp_rows['AudioID']);   	
+			$teaching_points[$current_teaching_point][$j][1] = getImageLink($tp_rows['ImageID'], $language_id);
+			$teaching_points[$current_teaching_point][$j][2] = $tp_rows['order'];
+			$j++;
 		
+		}
+				
+		echo $teaching_points[1][2][1];
 		//Increment the current teaching point number.
 		echo  $current_teaching_point."<br/>"; 
+		/*echo $teaching_points[$current_teaching_point][0]."<br/>";
+		echo $teaching_points[$current_teaching_point][1]."<br/>";
+		echo $teaching_points[$current_teaching_point][2]."<br/>";*/
+		
 		$current_teaching_point++;		
 			
 	}		// End of While Loop.

@@ -16,11 +16,9 @@
 		 return false;
 		});	
    </script>
-   
-   
-
-	
-	</head>
+   <style type=text/css>
+	select {font-size:20pt;width:250pt}
+   </style>
 <body>
 	<div id="top-ribbon"> </div> <div class="clear"></div>
 		<div id="logo-bar"> </div>
@@ -32,16 +30,16 @@
 		</a>
 	</div>
 
-
-<form action="">
-<select name="cars">
-<option value="volvo">Volvo</option>
-<option value="saab">Saab</option>
-<option value="fiat" selected="selected">Fiat</option>
-<option value="audi">Audi</option>
-</select>
-</form>
-
+	<center>
+	<form action="">
+		<select name="cars">
+			<option value="volvo">Volvo</option>
+			<option value="saab">Saab</option>
+			<option value="fiat" selected="selected">Fiat</option>
+			<option value="audi">Audi</option>
+		</select>
+	</form>
+	</center>
  
 <!-- The following JQuery is used to fetch the anchor tag in the div element and redirect the browser to that location. -->
   
