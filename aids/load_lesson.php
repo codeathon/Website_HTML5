@@ -51,8 +51,8 @@
 	
 	
 	// Load the Whoosh Transition Content.			
-	$whoosh_transition_audio_link = getAudioLink($get_intro_rows['AudioID']); 
-	$whoosh_transition_image_link = getImageLink($get_intro_rows['ImageID'], $language_id);
+	$whoosh_transition_audio_link = getAudioLink(56); 
+	$whoosh_transition_image_link = getImageLink(22, $language_id);
 	
 		
 	// Load all the Intro Content.
@@ -61,8 +61,8 @@
 	}
 	$get_intro_result =  mysql_query($get_intro_slq);
 	$get_intro_rows = mysql_fetch_array($get_intro_result);			
-	$intro_audio_link = getAudioLink(56); 
-	$intro_image_link = getImageLink(22, $language_id);
+	$intro_audio_link = getAudioLink($get_intro_rows['AudioID']); 
+	$intro_image_link = getImageLink($get_intro_rows['ImageID'], $language_id);
 			
 	// Declaring the variables. 		
 	$index = 0;							// Used in the second while loop. For loading all the quiz-es.
@@ -91,7 +91,7 @@
 			
 	}	
 		
-		// End of While Loop.
+	// End of While Loop.
 		
 	while($current_question_point<=$question_total_count) {
 			
@@ -149,13 +149,14 @@
 	var current_teaching_point = 1;
 	var current_question = 1;
 	var total_questions = <?php echo json_encode($total_questions); ?>
-	/*
-	 * This function is used to load the teaching points from the database and create a playlist for the player.
-	 */
+	var teaching_points = <?php echo json_encode($teaching_points); ?>
+	var questions = <?php echo json_encode($questions); ?>
 	
-	function load() {
-		alert(total_questions[1]);
-	}
+	/* 
+	 * This function is used to load the teaching points from the database and create a playlist for the player.
+	 */	
+	
+	
 	
 	
 </script>
