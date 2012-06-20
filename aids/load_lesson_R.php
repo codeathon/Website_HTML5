@@ -17,7 +17,8 @@
 	$teaching_points = array();									// To store all the teaching point links.
 	$questions = array();										// To store all the question links.
 	$quiz = array();											// To store all the quiz links.
-	$total_links = array();
+	$total_sub_tp_links = array();
+	$total_sub_ques_links = array();
 	
 	
 	$language_code = "ENG";  	// This is for testing only. This needs to be passed from the UI.
@@ -70,17 +71,17 @@
 		// SQL to fetch all the Audio and Image IDs for the Teaching Point from the database.
 		$tp_sql = "SELECT * FROM tme_teaching_point WHERE tpname LIKE '$current_teaching_point'";
 		$tp_result = mysql_query($tp_sql);
-		$j = 0;
+		$sub_tp_counter  = 0;
 		
 		while($tp_rows = mysql_fetch_array($tp_result)){						
 			//Call the function to fetch all the Audio and Image Links.
-			$teaching_points[$current_teaching_point][$j][0] = getAudioLink($tp_rows['AudioID']);   	
-			$teaching_points[$current_teaching_point][$j][1] = getImageLink($tp_rows['ImageID'], $language_id);
-			$teaching_points[$current_teaching_point][$j][2] = $tp_rows['order'];			
-			$j++;
+			$teaching_points[$current_teaching_point][$sub_tp_counter][0] = getAudioLink($tp_rows['AudioID']);   	
+			$teaching_points[$current_teaching_point][$sub_tp_counter][1] = getImageLink($tp_rows['ImageID'], $language_id);
+			$teaching_points[$current_teaching_point][$sub_tp_counter][2] = $tp_rows['order'];			
+			$sub_tp_counter++;
 		}
 					
-		$total_links[$current_teaching_point] = --$j;	
+		$total_sub_tp_links[$current_teaching_point] = --$sub_tp_counter;	
 					
 		//Increment the current teaching point number.		
 		$current_teaching_point++;		
@@ -94,23 +95,29 @@
 	// SQL to fetch all the Audio and Image IDs for the Question from the database.
 		$question_sql = "SELECT * FROM `tme_question` WHERE  `LessonID` = '$current_question_point'";
 		$question_result = mysql_query($question_sql);
-		$question_rows = mysql_fetch_array($question_result);
-			
-		//Call the function to fetch all the Audio and Image Links.
-		if($question_rows['tpname']!=0) {
-			$questions[$current_question_point][0] = getAudioLink($question_rows['AudioID']);   	
-			$questions[$current_question_point][1] = getImageLink($question_rows['ImageID'], $language_id);
-			$questions[$current_question_point][2] = $question_rows['order'];
-			$questions[$current_question_point][3] = $question_rows['Answer'];
-			$questions[$current_question_point][4] = getAudioLink($question_rows['positive']);
-			$questions[$current_question_point][5] = getAudioLink($question_rows['negative']);
-			$questions[$current_question_point][6] = $question_rows['tpname'];
-		}
-		else if ($question_rows['tpname']==0) {
-			$quiz[$index] = 	$current_question_point;		// Store the Question Number for the Quiz.	
-			$index++;	
-		}
-						
+		
+		$sub_question_counter = 0;
+		
+		while($question_rows = mysql_fetch_array($question_result)) {	
+			//Call the function to fetch all the Audio and Image Links.
+			if($question_rows['tpname']!=0) {
+				$questions[$current_question_point][$sub_question_counter][0] = getAudioLink($question_rows['AudioID']);   	
+				$questions[$current_question_point][$sub_question_counter][1] = getImageLink($question_rows['ImageID'], $language_id);
+				$questions[$current_question_point][$sub_question_counter][2] = $question_rows['order'];
+				$questions[$current_question_point][$sub_question_counter][3] = $question_rows['Answer'];
+				$questions[$current_question_point][$sub_question_counter][4] = getAudioLink($question_rows['positive']);
+				$questions[$current_question_point][$sub_question_counter][5] = getAudioLink($question_rows['negative']);
+				$questions[$current_question_point][$sub_question_counter][6] = $question_rows['tpname'];
+			}
+			else if ($question_rows['tpname']==0) {
+				$quiz[$index] = 	$current_question_point;		// Store the Question Number for the Quiz.	
+				$index++;	
+			}
+			$sub_question_counter++; 
+		}		
+
+		$total_sub_ques_links[$current_question_point] = --$sub_question_counter;
+				
 		//Increment the current question number.
 		$current_question_point++;
 						
@@ -156,14 +163,14 @@
 	/*
 	 * This function is used to load the teaching points from the database and create a playlist for the player.
 	 */
- 	var total_links = <?php echo json_encode($total_links); ?>;
+ 	var total_links_tp = <?php echo json_encode($total_sub_tp_links); ?>;
 	var tp_playlist = <?php echo json_encode($teaching_points); ?>;
 	var ques_list = <?php echo json_encode($questions); ?>;
 	
 	function loadTeachingPoints(){
 		playlist.length = 0;
 		imagelist.length = 0;
-		var total_links_cur = total_links[current_teaching_point];
+		var total_links_cur = total_links_tp[current_teaching_point];
 		var i;
 	//	tp_playlist_curr.clear();
 		for(i=0;i<=total_links_cur;i++) {
