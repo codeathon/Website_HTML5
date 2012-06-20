@@ -193,10 +193,10 @@
 		var i;
 	//	tp_playlist_curr.clear();
 		for(i=0;i<=total_links_cur;i++) {
-			playlist_ques[i] = ques_list[current_teaching_point][i][0];
-			imagelist_ques[i] =  ques_list[current_teaching_point][i][1];
+			playlist_ques[i] = ques_list[current_question][i][0];
+			imagelist_ques[i] =  ques_list[current_question][i][1];
 		}
-		current_teaching_point++;
+		current_question++;
 	}
 	
 	/*
