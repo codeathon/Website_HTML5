@@ -219,6 +219,7 @@
 		imagelist[0] = '<?php echo $intro_image_link; ?>';
 		
 		$("#down").click(function() {
+			
 		});
 		
 		$("#right").click(function() {
@@ -226,12 +227,11 @@
 			loadTeachingPoints(); 
 			loadQuestions();
 			alert(playlist_ques);
-  			StartPlayer(playlist.concat(playlist_ques), imagelist.concat(imagelist_ques), "false");
-  			
+  			StartPlayer(playlist.concat(playlist_ques), imagelist.concat(imagelist_ques), "false");  			
 		});		
 		
 		$("#up_question").click(function() {
-			
+			$("#right").trigger("click");
 		});
 		
 		
