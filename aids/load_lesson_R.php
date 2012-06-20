@@ -224,7 +224,8 @@
 			changeMap('#Map2');							
 			loadTeachingPoints(); 
 			loadQuestions();
-  			StartPlayer(playlist.concat(playlist_ques), imagelist.concat(imagelist_ques), "false");		
+  			StartPlayer(playlist.concat(playlist_ques), imagelist.concat(imagelist_ques), "false");
+  			alert(playlist_ques);		
 		});		
 		
 		$("#up_question").click(function() {
