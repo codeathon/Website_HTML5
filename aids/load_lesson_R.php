@@ -164,9 +164,9 @@
 		playlist.length = 0;
 		imagelist.length = 0;
 		var total_links_cur = total_links[current_teaching_point];
-		
+		var i;
 	//	tp_playlist_curr.clear();
-		for(var i=0;i<=total_links_cur;i++) {
+		for(i=0;i<=total_links_cur;i++) {
 			playlist[i] = tp_playlist[current_teaching_point][i][0];
 			imagelist[i] =  tp_playlist[current_teaching_point][i][1];
 		}
