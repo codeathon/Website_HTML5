@@ -61,6 +61,10 @@ mysql_select_db($dbname);
 	$intro_audio_link = getAudioLink($get_intro_rows['AudioID']); 
 	$intro_image_link = getImageLink($get_intro_rows['ImageID'], $language_id);
 	
+	
+	echo $intro_image_link;
+	
+	
 	// Load the Whoosh Transition Content.			
 	$whoosh_transition_audio_link = getAudioLink($get_intro_rows['AudioID']); 
 	$whoosh_transition_image_link = getImageLink($get_intro_rows['ImageID'], $language_id);
