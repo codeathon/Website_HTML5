@@ -54,12 +54,16 @@ mysql_select_db($dbname);
 	$get_language_id_result =  mysql_query($get_language_id_sql);
 	$get_language_id_rows = mysql_fetch_array($get_language_id_result);			
 	$language_id = $get_language_id_rows['LanguageID'];
-
+	
 	$get_intro_result =  mysql_query($get_intro_sql);
 	$get_intro_rows = mysql_fetch_array($get_intro_result);	
 	
-	$intro_audio_link = getAudioLink(76); 
-	$intro_image_link = getImageLink(112, 1);
+	$intro_audio_link = getAudioLink($get_intro_rows['AudioID']); 
+	$intro_image_link = getImageLink($get_intro_rows['ImageID'], $language_id);
+	
+	
+	echo $intro_image_link;
+	
 	
 	// Load the Whoosh Transition Content.			
 	$whoosh_transition_audio_link = getAudioLink($get_intro_rows['AudioID']); 
@@ -207,21 +211,21 @@ mysql_select_db($dbname);
 		});		
 		
 		$("#up_question").click(function() {
-			var right_answer = <?php echo checkAnswer(); ?>;
+			
 			if(right_answer == 1) {				
-				onCorrectClick();
+				//onCorrectClick();
 			} else {
-				onWrongClick();
+				//onWrongClick();
 			}
 		});
 		
 		
 		$("#down_question").click(function() {
-			var right_answer = <?php echo checkAnswer(); ?>;
+			
 			if(right_answer == 2) {
-				onCorrectClick();
+				//onCorrectClick();
 			} else {
-				onWrongClick();
+				//onWrongClick();
 			}
 		});	
 		
@@ -303,5 +307,5 @@ mysql_select_db($dbname);
    
 <?php
 	// Closee all the database connections.
-	include 'common_files/db_close.php';
+	//include 'common_files/db_close.php';
 ?>
