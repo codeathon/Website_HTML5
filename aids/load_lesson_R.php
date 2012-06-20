@@ -225,7 +225,7 @@
 			loadTeachingPoints(); 
 			loadQuestions();
   			StartPlayer(playlist.concat(playlist_ques), imagelist.concat(imagelist_ques), "false");
-  			alert(playlist_ques);		
+  			alert(playlist[4]);		
 		});		
 		
 		$("#up_question").click(function() {
