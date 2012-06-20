@@ -161,11 +161,18 @@
 	function loadTeachingPoints(){
 	
 		var total_links_cur = total_links[current_teaching_point];
-		tp_playlist.clear();
-		for(var i=0;i<total_links_cur;i++) {
-			tp_playlist[i] = '<?php echo $whoosh_transition_audio_link; ?>';
-			tp_imagelist[i] = '<?php echo $whoosh_transition_image_link; ?>';	
-		return 
+		var tp_playlist_curr;
+		var tp_imagelist_curr;
+		
+		tp_playlist_curr.clear();
+		for(var i=1;i<=total_links_cur;i++) {
+			tp_playlist_curr[i] = tp_playlist[current_teaching_point][i][0];
+			tp_imagelist_curr[i] =  tp_playlist[current_teaching_point][i][1];
+		}
+		tp_playlist[++i] = '<?php echo $whoosh_transition_audio_link; ?>';
+		tp_imagelist[++i] = '<?php echo $whoosh_transition_image_link; ?>';
+		
+		return [tp_playlist_curr, tp_imagelist_curr];
 	}
 
 	/*
