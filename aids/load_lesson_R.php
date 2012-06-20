@@ -5,18 +5,10 @@
 	//Authors - FlipTeam@framehawk.com
 	//Used in TME Project
 		
-<<<<<<< HEAD
-     include 'common_files/db_connect.php';
-=======
-    $dbhost = getenv('MYSQL_DB_HOST');
-	$dbuser = getenv('MYSQL_USERNAME');
-	$dbpass = getenv('MYSQL_PASSWORD');
-	$dbname = getenv('MYSQL_DB_NAME');
 
-$dbcon = mysql_connect($dbhost, $dbuser, $dbpass) or die ('Error connecting to mysql database.');
+    include 'common_files/db_connect.php';
 
-mysql_select_db($dbname);
->>>>>>> 96ed928b62f65723deb3109fe31d9ef189803e59
+    
 	
 	// Global variables declaration
 
@@ -259,7 +251,7 @@ mysql_select_db($dbname);
 	
 </script>
 </center>	
-	<!--<?php include 'common_files/top_ribbon.php'; ?>-->
+	<?php include 'common_files/top_ribbon.php'; ?>
 	<center>  		
   		 
 	        	
@@ -296,5 +288,5 @@ mysql_select_db($dbname);
    
 <?php
 	// Closee all the database connections.
-	include '../common_files/db_close.php';
+	include 'common_files/db_close.php';
 ?>
