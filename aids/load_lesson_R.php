@@ -32,7 +32,7 @@ mysql_select_db($dbname);
 			
 	
 	// Get the Total Questions.
-	$get_distinct_question_slq = "SELECT COUNT( DISTINCT LessonID ) as c FROM tme_question";
+	$get_distinct_question_sql = "SELECT COUNT( DISTINCT LessonID ) as c FROM tme_question";
 
 	// Get the Total Teaching Points.
 	$get_distinct_tp_slq = "SELECT COUNT( DISTINCT tpname ) as count FROM  tme_teaching_point";
@@ -43,8 +43,8 @@ mysql_select_db($dbname);
 	// Load all the Intro Content.
 	$get_intro_slq = "SELECT * FROM tme_intro_table WHERE  `LanguageID` = 1";
 	
-	$get_distinct_question_result =  mysql_query($get_distinct_tp_slq);
-	$get_distinct_question_rows = mysql_fetch_array($get_distinct_tp_result);			
+	$get_distinct_question_result =  mysql_query($get_distinct_question_sql);
+	$get_distinct_question_rows = mysql_fetch_array($get_distinct_question_result);			
 	$question_total_count = $get_distinct_question_rows['c'];
 
 	$get_distinct_tp_result =  mysql_query($get_distinct_tp_slq);
