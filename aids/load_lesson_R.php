@@ -5,7 +5,14 @@
 	//Authors - FlipTeam@framehawk.com
 	//Used in TME Project
 		
-    include 'common_files/db_connect.php';
+    $dbhost = getenv('MYSQL_DB_HOST');
+$dbuser = getenv('MYSQL_USERNAME');
+$dbpass = getenv('MYSQL_PASSWORD');
+$dbname = getenv('MYSQL_DB_NAME');
+
+$dbcon = mysql_connect($dbhost, $dbuser, $dbpass) or die ('Error connecting to mysql database.');
+
+mysql_select_db($dbname);
 	
 	// Global variables declaration
 	$intro_audio_link = "";
