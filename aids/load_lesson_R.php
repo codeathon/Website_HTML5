@@ -35,27 +35,27 @@ mysql_select_db($dbname);
 	$get_distinct_question_sql = "SELECT COUNT( DISTINCT LessonID ) as c FROM tme_question";
 
 	// Get the Total Teaching Points.
-	$get_distinct_tp_slq = "SELECT COUNT( DISTINCT tpname ) as count FROM  tme_teaching_point";
+	$get_distinct_tp_sql = "SELECT COUNT( DISTINCT tpname ) as count FROM  tme_teaching_point";
 	
 	// Get the Language ID from the Database.
-	$get_language_id_slq = "SELECT * FROM tme_language WHERE Language LIKE '$language_code'";
+	$get_language_id_sql = "SELECT * FROM tme_language WHERE Language LIKE '$language_code'";
 	
 	// Load all the Intro Content.
-	$get_intro_slq = "SELECT * FROM tme_intro_table WHERE  `LanguageID` = 1";
+	$get_intro_sql = "SELECT * FROM tme_intro_table WHERE  `LanguageID` = 1";
 	
 	$get_distinct_question_result =  mysql_query($get_distinct_question_sql);
 	$get_distinct_question_rows = mysql_fetch_array($get_distinct_question_result);			
 	$question_total_count = $get_distinct_question_rows['c'];
 
-	$get_distinct_tp_result =  mysql_query($get_distinct_tp_slq);
+	$get_distinct_tp_result =  mysql_query($get_distinct_tp_sql);
 	$get_distinct_tp_rows = mysql_fetch_array($get_distinct_tp_result);			
 	$tp_total_count = $get_distinct_tp_rows['count'];
 
-	$get_language_id_result =  mysql_query($get_language_id_slq);
+	$get_language_id_result =  mysql_query($get_language_id_sql);
 	$get_language_id_rows = mysql_fetch_array($get_language_id_result);			
 	$language_id = $get_language_id_rows['LanguageID'];
 
-	$get_intro_result =  mysql_query($get_intro_slq);
+	$get_intro_result =  mysql_query($get_intro_sql);
 	$get_intro_rows = mysql_fetch_array($get_intro_result);			
 	$intro_audio_link = getAudioLink(76); 
 	$intro_image_link = getImageLink(112, $language_id);
@@ -187,7 +187,7 @@ mysql_select_db($dbname);
 	/*
 	 * This is the starting point of the script. It starts with execution of the intro content.
 	 */
-	function PlayIntro1() {
+	function PlayIntro() {
 	 	
 	 	$('#play').hide();
 	 	
