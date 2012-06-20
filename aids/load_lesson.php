@@ -84,7 +84,7 @@
 			
 		}
 					
-		$total_questions[$current_teaching_point] = $j--;	
+		$total_questions[$current_teaching_point] = --$j;	
 					
 		//Increment the current teaching point number.		
 		$current_teaching_point++;		
@@ -148,115 +148,15 @@
 	// Global Variables.
 	var current_teaching_point = 1;
 	var current_question = 1;
+	var total_questions = <?php echo json_encode($total_questions); ?>
 	/*
 	 * This function is used to load the teaching points from the database and create a playlist for the player.
 	 */
 	
-	function loadTeachingPoints(){
-		var index = 0;			
-				
-		while(<?php echo $total_questions[1]; ?>) {											
-			tp_playlist[index] = '<?php echo  ?>';
-			tp_imagelist[index++] = '<?php echo getImageLink($tp_ImageID, $Lang_ID); ?>';
-		}
-					
-		tp_playlist[index] = '<?php echo $whoosh_transition_audio_link; ?>';
-		tp_imagelist[index++] = '<?php echo $whoosh_transition_image_link; ?>';	
-		
-	}
-
-	/*
-	 * This function is used to load the new Map for the image.
-	 */
-	function changeMap(mapName){
-		if (document.all) document.all.image.setAttribute('useMap', mapName) 
-		else if (document.getElementById) document.getElementById('image').useMap = mapName; 
+	function load() {
+		alert(total_questions[1]);
 	}
 	
-	
-	/*
-	 * This is the starting point of the script. It starts with execution of the intro content.
-	 */
-	function PlayIntro1() {
-	 	
-	 	$('#play').hide();
-	 	
-	 	var playlist= [];
-		var imagelist= []; 
-		
-		playlist[0] = '<?php echo $intro_audio_link; ?>';
-		imagelist[0] = '<?php echo $intro_image_link; ?>';
-		
-		$("#down").click(function() {
-			alert("Hello");
-		});
-		
-		$("#right").click(function() {
-			changeMap('#Map2');							
-			loadTeachingPoints(); 			
-			loadQuestions();
-			var new_playlist = tp_playlist.concat(que_playlist);
-			var new_imglist = tp_imagelist.concat(que_imagelist);
-  			StartPlayer(new_playlist, new_imglist, "false");  					  			
-		});		
-		
-		$("#up_question").click(function() {
-			var right_answer = <?php echo checkAnswer(); ?>;
-			if(right_answer == 1) {				
-				onCorrectClick();
-			} else {
-				onWrongClick();
-			}
-		});
-		
-		
-		$("#down_question").click(function() {
-			var right_answer = <?php echo checkAnswer(); ?>;
-			if(right_answer == 2) {
-				onCorrectClick();
-			} else {
-				onWrongClick();
-			}
-		});	
-		
-		StartPlayer(playlist, imagelist, "true");
-		
-	 }
-	 
-	 /*
-	  * This is a generic function which starts the player. This takes in the argument of Playlist and ImageList.
-	  */
-	 function StartPlayer(playlist, imagelist, pauseVariable) {	 	
-	 	
-	 	var i=0;
-	 		 		 	
-	 	myAudio = new Audio();
-        document.getElementById("myaudio").appendChild(myAudio);
-        myAudio.preload = true;
-        myAudio.controls = true;
-        document.getElementById("image").src=imagelist[0];
-        myAudio.src = playlist[0];
-        myAudio.addEventListener('ended', playEndedHandler, false);        
-        myAudio.play();
-        
-	 	function playEndedHandler(e){	
-			if(i < playlist.length)
-			{
-				if(pauseVariable=="true") {
-					myAudio.pause();
-				}
-				else {					
-			 		i++; 
-			 		myAudio.src = playlist[i];
-			 		myAudio.play();
-			 		//change image
-			 		if(i < playlist.length) {
-					 	document.getElementById("image").src=imagelist[i];
-					 }
-				}    
-			 }
-		}	 	
-	 }	
 	
 </script>
 </center>	
@@ -288,7 +188,7 @@
 	      			HTML5 audio not supported
 				</audio>
 			</div>
-    		<button id="play" onclick="PlayIntro();"> <img src="images/play_icon.png" width="128" height="128" alt="" id=""/> </button>
+    		<button id="play" onclick="load();"> <img src="images/play_icon.png" width="128" height="128" alt="" id=""/> </button>
     		
     	</div> 
     <br/>	
