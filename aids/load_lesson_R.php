@@ -190,6 +190,9 @@ mysql_select_db($dbname);
 	 	
 	 	$('#play').hide();
 	 	
+	 	alert("Hello");
+	 	
+	 	
 		tp_playlist[0] = '<?php echo $intro_audio_link; ?>';
 		tp_imagelist[0] = '<?php echo $intro_image_link; ?>';
 		
@@ -198,31 +201,16 @@ mysql_select_db($dbname);
 		});
 		
 		$("#right").click(function() {
-			changeMap('#Map2');							
-			loadTeachingPoints(); 			
-			loadQuestions();
-			var new_playlist = tp_playlist.concat(que_playlist);
-			var new_imglist = tp_imagelist.concat(que_imagelist);
-  			StartPlayer(new_playlist, new_imglist, "false");  					  			
+			alert("Hello"); 					  			
 		});		
 		
 		$("#up_question").click(function() {
 			
-			if(right_answer == 1) {				
-				//onCorrectClick();
-			} else {
-				//onWrongClick();
-			}
 		});
 		
 		
 		$("#down_question").click(function() {
 			
-			if(right_answer == 2) {
-				//onCorrectClick();
-			} else {
-				//onWrongClick();
-			}
 		});	
 		
 		StartPlayer(tp_playlist, tp_imagelist, "true");
@@ -264,6 +252,7 @@ mysql_select_db($dbname);
 		}	 	
 	 }	
 	
+	
 </script>
 </center>	
 	<!--<?php include 'common_files/top_ribbon.php'; ?>-->
@@ -303,5 +292,5 @@ mysql_select_db($dbname);
    
 <?php
 	// Closee all the database connections.
-	//include 'common_files/db_close.php';
+	include '../common_files/db_close.php';
 ?>
