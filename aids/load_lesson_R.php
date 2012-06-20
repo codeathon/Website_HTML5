@@ -306,5 +306,5 @@ mysql_select_db($dbname);
    
 <?php
 	// Closee all the database connections.
-	//include 'common_files/db_close.php';
+	include '../common_files/db_close.php';
 ?>
