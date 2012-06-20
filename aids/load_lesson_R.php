@@ -153,9 +153,9 @@ mysql_select_db($dbname);
 	/*
 	 * This function is used to load the teaching points from the database and create a playlist for the player.
 	 */
-	var total_links = <?php echo json_encode($total_links); ?>;
-	var tp_playlist = <?php echo json_encode($teaching_points); ?>;
-	var ques_lit_js = <?php echo json_encode($questions); ?>;
+	//var total_links = <?php echo json_encode($total_links); ?>;
+	//var tp_playlist = <?php echo json_encode($teaching_points); ?>;
+	//var ques_lit_js = <?php echo json_encode($questions); ?>;
 	
 	var tp_playlist= [];
 	var tp_imagelist= []; 
@@ -201,31 +201,16 @@ mysql_select_db($dbname);
 		});
 		
 		$("#right").click(function() {
-			changeMap('#Map2');							
-			loadTeachingPoints(); 			
-			loadQuestions();
-			var new_playlist = tp_playlist.concat(que_playlist);
-			var new_imglist = tp_imagelist.concat(que_imagelist);
-  			StartPlayer(new_playlist, new_imglist, "false");  					  			
+			alert("Hello"); 					  			
 		});		
 		
 		$("#up_question").click(function() {
 			
-			if(right_answer == 1) {				
-				//onCorrectClick();
-			} else {
-				//onWrongClick();
-			}
 		});
 		
 		
 		$("#down_question").click(function() {
 			
-			if(right_answer == 2) {
-				//onCorrectClick();
-			} else {
-				//onWrongClick();
-			}
 		});	
 		
 		StartPlayer(tp_playlist, tp_imagelist, "true");
