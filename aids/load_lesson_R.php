@@ -180,7 +180,7 @@
 			playlist[i] = tp_playlist[current_teaching_point][i][0];
 			imagelist[i] =  tp_playlist[current_teaching_point][i][1];
 		}
-		alert('<?php echo $whoosh_transition_audio_link; ?>');
+		alert(i);
 		playlist[++i] = '<?php echo $whoosh_transition_audio_link; ?>';
 		imagelist[++i] = '<?php echo $whoosh_transition_image_link; ?>';
 		current_teaching_point++;
@@ -226,7 +226,6 @@
 			loadTeachingPoints(); 
 			loadQuestions();
   			StartPlayer(playlist.concat(playlist_ques), imagelist.concat(imagelist_ques), "false");
-  			alert(playlist[3]);		
 		});		
 		
 		$("#up_question").click(function() {
