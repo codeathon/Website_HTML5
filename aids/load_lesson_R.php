@@ -15,8 +15,7 @@ $dbcon = mysql_connect($dbhost, $dbuser, $dbpass) or die ('Error connecting to m
 mysql_select_db($dbname);
 	
 	// Global variables declaration
-	$intro_audio_link = "";
-	$intro_image_link = "";
+
 	$whoosh_transition_audio_link = "";
 	$whoosh_transition_image_link = "";
 	$teaching_points = array();									// To store all the teaching point links.
@@ -164,7 +163,7 @@ mysql_select_db($dbname);
 		var tp_playlist_curr;
 		var tp_imagelist_curr;
 		
-		tp_playlist_curr.clear();
+	//	tp_playlist_curr.clear();
 		for(var i=1;i<=total_links_cur;i++) {
 			tp_playlist_curr[i] = tp_playlist[current_teaching_point][i][0];
 			tp_imagelist_curr[i] =  tp_playlist[current_teaching_point][i][1];
