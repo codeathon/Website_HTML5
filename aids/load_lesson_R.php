@@ -30,7 +30,11 @@ mysql_select_db($dbname);
 	$current_teaching_point = 1;								// Specifies the current teaching point being pocessed.
 	$current_question_point = 1;								// Specifies the current question beign processed.
 						
-		
+	$get_intro_result =  mysql_query($get_intro_slq);
+	$get_intro_rows = mysql_fetch_array($get_intro_result);			
+	$intro_audio_link = getAudioLink(76); 
+	$intro_image_link = getImageLink(112, $language_id);
+	
 	// Get the Total Teaching Points.
 	if(!($get_distinct_tp_slq = "SELECT COUNT( DISTINCT tpname ) as count FROM  tme_teaching_point")) {
 		echo "Error with the query!!";
@@ -66,10 +70,7 @@ mysql_select_db($dbname);
 	if(!($get_intro_slq = "SELECT * FROM tme_intro_table WHERE  `LanguageID` = '$language_id'")) {
 		echo "Error with the Query!!";
 	}
-	$get_intro_result =  mysql_query($get_intro_slq);
-	$get_intro_rows = mysql_fetch_array($get_intro_result);			
-	$intro_audio_link = getAudioLink(76); 
-	$intro_image_link = getImageLink(112, $language_id);
+
 			
 	// Declaring the variables. 		
 	$index = 0;							// Used in the second while loop. For loading all the quiz-es.
