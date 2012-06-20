@@ -69,7 +69,7 @@
 		// SQL to fetch all the Audio and Image IDs for the Teaching Point from the database.
 		$tp_sql = "SELECT * FROM tme_teaching_point WHERE tpname LIKE '$current_teaching_point'";
 		$tp_result = mysql_query($tp_sql);
-		$j = 1;
+		$j = 0;
 		
 		while($tp_rows = mysql_fetch_array($tp_result)){						
 			//Call the function to fetch all the Audio and Image Links.
@@ -79,7 +79,7 @@
 			$j++;
 		}
 					
-		$total_links[$current_teaching_point] = $j--;	
+		$total_links[$current_teaching_point] = --$j;	
 					
 		//Increment the current teaching point number.		
 		$current_teaching_point++;		
@@ -148,6 +148,9 @@
 	var tp_imagelist= []; 
 	var ques_list = [];
 	
+	var playlist = [];
+	var imagelist = [];
+	
 	/*
 	 * This function is used to load the teaching points from the database and create a playlist for the player.
 	 */
@@ -156,21 +159,19 @@
 	var ques_list = <?php echo json_encode($questions); ?>;
 	
 	function loadTeachingPoints(){
-	
+		playlist.length = 0;
+		imagelist.length = 0;
 		var total_links_cur = total_links[current_teaching_point];
-		var tp_playlist_curr;
-		var tp_imagelist_curr;
 		
 	//	tp_playlist_curr.clear();
-		for(var i=1;i<=total_links_cur;i++) {
-			tp_playlist_curr[i] = tp_playlist[current_teaching_point][i][0];
-			tp_imagelist_curr[i] =  tp_playlist[current_teaching_point][i][1];
+		for(var i=0;i<=total_links_cur;i++) {
+			playlist[i] = tp_playlist[current_teaching_point][i][0];
+			imagelist[i] =  tp_playlist[current_teaching_point][i][1];
 		}
-		tp_playlist[++i] = '<?php echo $whoosh_transition_audio_link; ?>';
-		tp_imagelist[++i] = '<?php echo $whoosh_transition_image_link; ?>';
-		
-		return [tp_playlist_curr, tp_imagelist_curr];
-	}
+		playlist[++i] = '<?php echo $whoosh_transition_audio_link; ?>';
+		imagelist[++i] = '<?php echo $whoosh_transition_image_link; ?>';
+		current_teaching_point++;
+	};
 
 	/*
 	 * This function is used to load the new Map for the image.
@@ -188,19 +189,16 @@
 	 	
 	 	$('#play').hide();
 	
-		tp_playlist[0] = '<?php echo $intro_audio_link; ?>';
-		tp_imagelist[0] = '<?php echo $intro_image_link; ?>';
+		playlist[0] = '<?php echo $intro_audio_link; ?>';
+		imagelist[0] = '<?php echo $intro_image_link; ?>';
 		
 		$("#down").click(function() {
 		});
 		
 		$("#right").click(function() {
 			changeMap('#Map2');							
-			loadTeachingPoints(); 			
-			loadQuestions();
-			var new_playlist = tp_playlist.concat(que_playlist);
-			var new_imglist = tp_imagelist.concat(que_imagelist);
-  			StartPlayer(new_playlist, new_imglist, "false");		
+			loadTeachingPoints(); 
+  			StartPlayer(playlist, imagelist, "false");		
 		});		
 		
 		$("#up_question").click(function() {
@@ -212,7 +210,7 @@
 			
 		});	
 		
-		StartPlayer(tp_playlist, tp_imagelist, "true");
+		StartPlayer(playlist,imagelist, "true");
 		
 	 }
 	 
