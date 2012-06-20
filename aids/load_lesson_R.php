@@ -226,7 +226,7 @@
 			changeMap('#Map2');							
 			loadTeachingPoints(); 
 			loadQuestions();
-			alert(playlist_ques);
+			alert(current_teaching_point);
   			StartPlayer(playlist.concat(playlist_ques), imagelist.concat(imagelist_ques), "false");  			
 		});		
 		
