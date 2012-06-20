@@ -6,9 +6,9 @@
 	//Used in TME Project
 		
     $dbhost = getenv('MYSQL_DB_HOST');
-$dbuser = getenv('MYSQL_USERNAME');
-$dbpass = getenv('MYSQL_PASSWORD');
-$dbname = getenv('MYSQL_DB_NAME');
+	$dbuser = getenv('MYSQL_USERNAME');
+	$dbpass = getenv('MYSQL_PASSWORD');
+	$dbname = getenv('MYSQL_DB_NAME');
 
 $dbcon = mysql_connect($dbhost, $dbuser, $dbpass) or die ('Error connecting to mysql database.');
 
@@ -75,14 +75,12 @@ mysql_select_db($dbname);
 		$tp_result = mysql_query($tp_sql);
 		$j = 1;
 		
-		while($tp_rows = mysql_fetch_array($tp_result)){
-									
+		while($tp_rows = mysql_fetch_array($tp_result)){						
 			//Call the function to fetch all the Audio and Image Links.
 			$teaching_points[$current_teaching_point][$j][0] = getAudioLink($tp_rows['AudioID']);   	
 			$teaching_points[$current_teaching_point][$j][1] = getImageLink($tp_rows['ImageID'], $language_id);
 			$teaching_points[$current_teaching_point][$j][2] = $tp_rows['order'];			
 			$j++;
-			
 		}
 					
 		$total_links[$current_teaching_point] = $j--;	
