@@ -180,9 +180,10 @@
 			playlist[i] = tp_playlist[current_teaching_point][i][0];
 			imagelist[i] =  tp_playlist[current_teaching_point][i][1];
 		}
-		alert(i);
+		
 		playlist[++i] = '<?php echo $whoosh_transition_audio_link; ?>';
 		imagelist[++i] = '<?php echo $whoosh_transition_image_link; ?>';
+		alert(playlist[4]);
 		current_teaching_point++;
 	}
 	
