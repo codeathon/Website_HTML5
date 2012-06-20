@@ -32,7 +32,7 @@ mysql_select_db($dbname);
 			
 	
 	// Get the Total Questions.
-	$get_distinct_question_slq = "SELECT COUNT( DISTINCT LessonID ) as c FROM tme_question");
+	$get_distinct_question_slq = "SELECT COUNT( DISTINCT LessonID ) as c FROM tme_question";
 
 	$get_distinct_question_result =  mysql_query($get_distinct_tp_slq);
 	$get_distinct_question_rows = mysql_fetch_array($get_distinct_tp_result);			
