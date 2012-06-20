@@ -150,9 +150,9 @@ mysql_select_db($dbname);
 	/*
 	 * This function is used to load the teaching points from the database and create a playlist for the player.
 	 */
-	var total_links = <?php echo json_encode($total_links); ?>;
+/* 	var total_links = <?php echo json_encode($total_links); ?>;
 	var tp_playlist = <?php echo json_encode($teaching_points); ?>;
-	var ques_lit_js = <?php echo json_encode($questions); ?>;
+	var ques_lit_js = <?php echo json_encode($questions); ?>; */
 	
 	var tp_playlist= [];
 	var tp_imagelist= []; 
