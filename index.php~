@@ -1,0 +1,64 @@
+<?php
+	//This page represents the home page. It takes the header from header_common.
+	//Authors - FlipTeam@framehawk.com
+	//Used in TME Project
+?>
+	<?php include 'common_files/header.php'; ?>
+	<?php include 'common_files/top_ribbon.php'; ?>
+	
+	<div class="clear"></div>
+	<div class="grid_2 prefix_0 suffix_2">
+		<div class="lesson_label">
+			<div class="shadow1">
+				<div class="content" style="cursor:pointer">
+					<img alt="logo" src="images/aids-ribbon.png" id="label1" height="120" width="140">
+					<br/> <center> <b> HIV / AIDS </b>
+					</center>
+					<a href="hiv_aids_home.php"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+  
+	<div class="grid_2 prefix_1 suffix_2">
+		<div class="lesson_label">
+			<div class="shadow1">	
+				<div class="content" style="cursor:pointer">
+					<img alt="logo" src="images/Hygiene.png" id="label2" height="130" width="140">
+					<br/> <center> <b> Basic Hygiene </b></center>
+					<a href="test2.php"></a>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+	<div class="grid_2 prefix_1 suffix_2">
+		<div class="lesson_label">
+			<div class="shadow1">
+				<div class="content">
+					<img alt="logo" src="images/nosmoking.png" id="label3" height="130" width="140">
+					<br/> <center> <b> Dangers of Smoking</b>    <!-- change this -->
+					</center>
+
+					<a href="start.php"></a>
+
+				</div>
+			</div>
+		</div>
+	</div>
+  
+  <!-- The following JQuery is used to fetch the anchor tag in the div element and redirect the browser to that location. -->
+  
+  <script>
+		$(".content").click(function(){
+		 window.location=$(this).find("a").attr("href");
+		 return false;
+		});	
+   </script>
+  
+  <div class="clear"></div>  
+  
+  <?php include 'common_files/footer.php'; ?>
+  
+  
+  
