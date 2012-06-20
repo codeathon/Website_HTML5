@@ -191,8 +191,8 @@ mysql_select_db($dbname);
 	 	
 	 	$('#play').hide();
 	 	
-		playlist[0] = '<?php echo $intro_audio_link; ?>';
-		imagelist[0] = '<?php echo $intro_image_link; ?>';
+		tp_playlist[0] = '<?php echo $intro_audio_link; ?>';
+		tp_imagelist[0] = '<?php echo $intro_image_link; ?>';
 		
 		$("#down").click(function() {
 			alert("Hello");
@@ -226,7 +226,7 @@ mysql_select_db($dbname);
 			}
 		});	
 		
-		StartPlayer(playlist, imagelist, "true");
+		StartPlayer(tp_playlist, tp_imagelist, "true");
 		
 	 }
 	 
