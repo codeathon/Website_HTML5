@@ -167,8 +167,6 @@
 	var tp_playlist = <?php echo json_encode($teaching_points); ?>;
 	var ques_list = <?php echo json_encode($questions); ?>;
 	
-	var question_list;
-	
 	function loadTeachingPoints(){
 		playlist.length = 0;
 		imagelist.length = 0;
@@ -184,11 +182,6 @@
 		current_teaching_point++;
 	};
 
-	function loadQuestions() {
-		var question_list
-	}
-	
-	
 	/*
 	 * This function is used to load the new Map for the image.
 	 */
@@ -269,7 +262,9 @@
 </script>
 </center>	
 	<?php include 'common_files/top_ribbon.php'; ?>
-	<center>  		   	
+	<center>  		
+  		 
+	        	
     	<div class="img_slide_lesson">
 	   		<img src='<?php echo $intro_image_link; ?>' width="600" height="450" id="image" usemap="#Map">
 	   		<map name="Map" id="Map"> 
