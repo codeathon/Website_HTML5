@@ -32,33 +32,29 @@ mysql_select_db($dbname);
 			
 	
 	// Get the Total Questions.
-	if(!($get_distinct_question_slq = "SELECT COUNT( DISTINCT LessonID ) as c FROM tme_question")){
-		echo "Error with the Query!!";
-	}
+	$get_distinct_question_slq = "SELECT COUNT( DISTINCT LessonID ) as c FROM tme_question";
+
 	$get_distinct_question_result =  mysql_query($get_distinct_tp_slq);
 	$get_distinct_question_rows = mysql_fetch_array($get_distinct_tp_result);			
 	$question_total_count = $get_distinct_question_rows['c'];
 	
 	// Get the Total Teaching Points.
-	if(!($get_distinct_tp_slq = "SELECT COUNT( DISTINCT tpname ) as count FROM  tme_teaching_point")) {
-		echo "Error with the query!!";
-	}
+	$get_distinct_tp_slq = "SELECT COUNT( DISTINCT tpname ) as count FROM  tme_teaching_point";
+
 	$get_distinct_tp_result =  mysql_query($get_distinct_tp_slq);
 	$get_distinct_tp_rows = mysql_fetch_array($get_distinct_tp_result);			
 	$tp_total_count = $get_distinct_tp_rows['count'];
 	
 	// Get the Language ID from the Database.
-	if(!($get_language_id_slq = "SELECT * FROM tme_language WHERE Language LIKE '$language_code'")) {
-		echo "Error with the Query!!";
-	}
+	$get_language_id_slq = "SELECT * FROM tme_language WHERE Language LIKE '$language_code'";
+
 	$get_language_id_result =  mysql_query($get_language_id_slq);
 	$get_language_id_rows = mysql_fetch_array($get_language_id_result);			
 	$language_id = $get_language_id_rows['LanguageID'];
 	
 	// Load all the Intro Content.
-	if(!($get_intro_slq = "SELECT * FROM tme_intro_table WHERE  `LanguageID` = '$language_id'")) {
-		echo "Error with the Query!!";
-	}
+	$get_intro_slq = "SELECT * FROM tme_intro_table WHERE  `LanguageID` = '$language_id'";
+
 	
 	$get_intro_result =  mysql_query($get_intro_slq);
 	$get_intro_rows = mysql_fetch_array($get_intro_result);			
