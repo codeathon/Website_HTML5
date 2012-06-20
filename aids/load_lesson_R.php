@@ -41,7 +41,7 @@ mysql_select_db($dbname);
 	$get_language_id_slq = "SELECT * FROM tme_language WHERE Language LIKE '$language_code'";
 	
 	// Load all the Intro Content.
-	$get_intro_slq = "SELECT * FROM tme_intro_table WHERE  `LanguageID` = '$language_id'";
+	$get_intro_slq = "SELECT * FROM tme_intro_table WHERE  `LanguageID` = 1";
 	
 	$get_distinct_question_result =  mysql_query($get_distinct_tp_slq);
 	$get_distinct_question_rows = mysql_fetch_array($get_distinct_tp_result);			
