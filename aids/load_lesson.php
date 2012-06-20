@@ -53,7 +53,7 @@
 	
 		
 	// Load all the Intro Content.
-	$get_intro_slq = "SELECT * FROM tme_intro_table WHERE  `LanguageID` = '$language_id'");
+	$get_intro_slq = "SELECT * FROM tme_intro_table WHERE  `LanguageID` = '$language_id'";
 
 	$get_intro_result =  mysql_query($get_intro_slq);
 	$get_intro_rows = mysql_fetch_array($get_intro_result);			
