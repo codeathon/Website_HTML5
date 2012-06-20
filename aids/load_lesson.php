@@ -84,7 +84,7 @@
 			
 		}
 					
-		$total_questions[$current_teaching_point] = $j--;	
+		$total_questions[$current_teaching_point] = --$j;	
 					
 		//Increment the current teaching point number.		
 		$current_teaching_point++;		
