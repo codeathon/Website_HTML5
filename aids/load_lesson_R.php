@@ -25,12 +25,12 @@
 						
 		
 	// Get the Total Teaching Points.
-	if(!($get_distinct_tp_slq = "SELECT COUNT( DISTINCT tpname ) as c FROM  tme_teaching_point")) {
+	if(!($get_distinct_tp_slq = "SELECT COUNT( DISTINCT tpname ) as count FROM  tme_teaching_point")) {
 		echo "Error with the query!!";
 	}
 	$get_distinct_tp_result =  mysql_query($get_distinct_tp_slq);
 	$get_distinct_tp_rows = mysql_fetch_array($get_distinct_tp_result);			
-	$tp_total_count = $get_distinct_tp_rows['c'];										
+	$tp_total_count = $get_distinct_tp_rows['count'];										
 		
 	// Get the Total Questions.
 	if(!($get_distinct_question_slq = "SELECT COUNT( DISTINCT LessonID ) as c FROM tme_question")){
