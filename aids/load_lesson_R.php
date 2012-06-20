@@ -267,6 +267,9 @@ mysql_select_db($dbname);
 		}	 	
 	 }	
 	
+	function load() {
+		alert("It is working!!");
+	}
 </script>
 </center>	
 	<!--<?php include 'common_files/top_ribbon.php'; ?>-->
@@ -297,7 +300,7 @@ mysql_select_db($dbname);
 	      			HTML5 audio not supported
 				</audio>
 			</div>
-    		<button id="play" onclick="PlayIntro();"> <img src="../images/play_icon.png" width="128" height="128" alt="" id=""/> </button>
+    		<button id="play" onclick="load();"> <img src="../images/play_icon.png" width="128" height="128" alt="" id=""/> </button>
     		
     	</div> 
     <br/>	
