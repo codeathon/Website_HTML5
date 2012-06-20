@@ -183,7 +183,6 @@
 		i = i+1;
 		playlist.push('<?php echo $whoosh_transition_audio_link; ?>');
 		imagelist.push('<?php echo $whoosh_transition_image_link; ?>');
-		alert(playlist);
 		current_teaching_point++;
 	}
 	
@@ -226,7 +225,9 @@
 			changeMap('#Map2');							
 			loadTeachingPoints(); 
 			loadQuestions();
+			alert(playlist.concat(playlist_ques));
   			StartPlayer(playlist.concat(playlist_ques), imagelist.concat(imagelist_ques), "false");
+  			
 		});		
 		
 		$("#up_question").click(function() {
