@@ -213,11 +213,11 @@ mysql_select_db($dbname);
 		});		
 		
 		$("#up_question").click(function() {
-			var right_answer = <?php echo checkAnswer(); ?>;
+			//var right_answer = <?php echo checkAnswer(); ?>;
 			if(right_answer == 1) {				
-				onCorrectClick();
+				//onCorrectClick();
 			} else {
-				onWrongClick();
+				//onWrongClick();
 			}
 		});
 		
@@ -225,9 +225,9 @@ mysql_select_db($dbname);
 		$("#down_question").click(function() {
 			var right_answer = <?php echo checkAnswer(); ?>;
 			if(right_answer == 2) {
-				onCorrectClick();
+				//onCorrectClick();
 			} else {
-				onWrongClick();
+				//onWrongClick();
 			}
 		});	
 		
