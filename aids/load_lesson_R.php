@@ -58,8 +58,9 @@
 	
 		
 	// Load the Whoosh Transition Content.			
-	$whoosh_transition_audio_link = getAudioLink($get_intro_rows['AudioID']); 
-	$whoosh_transition_image_link = getImageLink($get_intro_rows['ImageID'], $language_id);
+	// Load the Whoosh Transition Content.			
+	$whoosh_transition_audio_link = getAudioLink(56); 
+	$whoosh_transition_image_link = getImageLink(22, $language_id);
 			
 	// Declaring the variables. 		
 	$index = 0;							// Used in the second while loop. For loading all the quiz-es.
