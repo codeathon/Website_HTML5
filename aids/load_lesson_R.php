@@ -231,12 +231,23 @@
 		});		
 		
 		$("#up_question").click(function() {
-			$("#right").trigger("click");
+			//$("#right").trigger("click");
+			var right_answer = ques_list[(current_question-1)][1][3];
+			if(right_answer == 1) {				
+				
+			} else {
+				
+			}
 		});
 		
 		
 		$("#down_question").click(function() {
-			
+			var right_answer = ques_list[(current_question-1)][1][3];
+			if(right_answer == 1) {				
+				
+			} else {
+				
+			}
 		});	
 		
 		StartPlayer(playlist,imagelist, "true");
