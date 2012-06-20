@@ -143,15 +143,17 @@
 	// Global Variables.
 	var current_teaching_point = 1;
 	var current_question = 1;
-	/*
-	 * This function is used to load the teaching points from the database and create a playlist for the player.
-	 */
-/* 	var total_links = <?php echo json_encode($total_links); ?>;
-	var tp_playlist = <?php echo json_encode($teaching_points); ?>;
-	var ques_lit_js = <?php echo json_encode($questions); ?>; */
 	
 	var tp_playlist= [];
 	var tp_imagelist= []; 
+	var ques_list = [];
+	
+	/*
+	 * This function is used to load the teaching points from the database and create a playlist for the player.
+	 */
+ 	var total_links = <?php echo json_encode($total_links); ?>;
+	var tp_playlist = <?php echo json_encode($teaching_points); ?>;
+	var ques_list = <?php echo json_encode($questions); ?>;
 	
 	function loadTeachingPoints(){
 	
@@ -197,7 +199,12 @@
 		});
 		
 		$("#right").click(function() {
-			alert("Hello"); 					  			
+			changeMap('#Map2');							
+			loadTeachingPoints(); 			
+			loadQuestions();
+			var new_playlist = tp_playlist.concat(que_playlist);
+			var new_imglist = tp_imagelist.concat(que_imagelist);
+  			StartPlayer(new_playlist, new_imglist, "false");		
 		});		
 		
 		$("#up_question").click(function() {
