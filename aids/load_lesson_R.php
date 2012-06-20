@@ -99,7 +99,7 @@ mysql_select_db($dbname);
 			
 	}	
 		
-		// End of While Loop.
+	// End of While Loop.
 		
 	while($current_question_point<=$question_total_count) {
 			
