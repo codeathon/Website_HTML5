@@ -9,6 +9,6 @@
 <script src="js/load_audio_img.js"></script>
 <link rel="stylesheet" type="text/css" href="css/audio_bar.css" />	
 <center>
-<?php include 'aids/load_lesson.php'; ?>
+<?php include 'aids/load_lesson_R.php'; ?>
 </center>
 <?php include 'common_files/footer.php'; ?>
