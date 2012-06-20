@@ -187,15 +187,11 @@
 	function PlayIntro() {
 	 	
 	 	$('#play').hide();
-	 	
-	 	alert("Hello");
-	 	
-	 	
+	
 		tp_playlist[0] = '<?php echo $intro_audio_link; ?>';
 		tp_imagelist[0] = '<?php echo $intro_image_link; ?>';
 		
 		$("#down").click(function() {
-			alert("Hello");
 		});
 		
 		$("#right").click(function() {
