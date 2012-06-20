@@ -144,9 +144,10 @@
 	// Global Variables.
 	var current_teaching_point = 1;
 	var current_question = 1;
-	var total_questions = <?php echo json_encode($total_questions); ?>
-	var teaching_points = <?php echo json_encode($teaching_points); ?>
-	var questions = <?php echo json_encode($questions); ?>
+	var total_questions = <?php echo json_encode($total_questions); ?>;
+	var teaching_points = <?php echo json_encode($teaching_points); ?>;
+	var questions = <?php echo json_encode($questions); ?>;
+	
 	
 	/* 
 	 * This function is used to load the teaching points from the database and create a playlist for the player.
@@ -154,8 +155,7 @@
 	function load() {
 		alert(total_questions[1]);
 	}
-	
-	
+		
 	
 </script>
 </center>	
