@@ -153,7 +153,7 @@
 	 * This function is used to load the teaching points from the database and create a playlist for the player.
 	 */	
 	function load() {
-		alert(total_questions[1]);
+		alert(teaching_points[1][1][1]);
 	}
 		
 	
