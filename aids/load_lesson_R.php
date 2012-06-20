@@ -150,7 +150,7 @@
 	
 	// Global Variables.
 	var current_teaching_point = 1;
-	var current_question = 1;
+	vari current_question = 1;
 	
 	var tp_playlist= [];
 	var tp_imagelist= []; 
@@ -159,10 +159,14 @@
 	var playlist = [];
 	var imagelist = [];
 	
+	var playlist_ques = [];
+	var imagelist_ques = [];
+	
 	/*
 	 * This function is used to load the teaching points from the database and create a playlist for the player.
 	 */
  	var total_links_tp = <?php echo json_encode($total_sub_tp_links); ?>;
+ 	var total_links_ques = <?php echo json_encode($total_sub_ques_links); ?>;
 	var tp_playlist = <?php echo json_encode($teaching_points); ?>;
 	var ques_list = <?php echo json_encode($questions); ?>;
 	
@@ -179,8 +183,21 @@
 		playlist[++i] = '<?php echo $whoosh_transition_audio_link; ?>';
 		imagelist[++i] = '<?php echo $whoosh_transition_image_link; ?>';
 		current_teaching_point++;
-	};
-
+	}
+	
+	function loadQuestions(){
+		playlist_ques.length = 0;
+		imagelist_ques.length = 0;
+		var total_links_cur = total_links_ques[current_question];
+		var i;
+	//	tp_playlist_curr.clear();
+		for(i=0;i<=total_links_cur;i++) {
+			playlist_ques[i] = tp_playlist[current_teaching_point][i][0];
+			imagelist_ques[i] =  tp_playlist[current_teaching_point][i][1];
+		}
+		current_teaching_point++;
+	}
+	
 	/*
 	 * This function is used to load the new Map for the image.
 	 */
@@ -206,7 +223,8 @@
 		$("#right").click(function() {
 			changeMap('#Map2');							
 			loadTeachingPoints(); 
-  			StartPlayer(playlist, imagelist, "false");		
+			loadQuestions();
+  			StartPlayer(playlist.concat(playlist_ques), imagelist.concat(imagelist_ques), "false");		
 		});		
 		
 		$("#up_question").click(function() {
