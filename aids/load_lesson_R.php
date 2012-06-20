@@ -61,10 +61,7 @@ mysql_select_db($dbname);
 	$intro_audio_link = getAudioLink($get_intro_rows['AudioID']); 
 	$intro_image_link = getImageLink($get_intro_rows['ImageID'], $language_id);
 	
-	
-	echo $intro_image_link;
-	
-	
+		
 	// Load the Whoosh Transition Content.			
 	$whoosh_transition_audio_link = getAudioLink($get_intro_rows['AudioID']); 
 	$whoosh_transition_image_link = getImageLink($get_intro_rows['ImageID'], $language_id);
@@ -300,7 +297,7 @@ mysql_select_db($dbname);
 	      			HTML5 audio not supported
 				</audio>
 			</div>
-    		<button id="play" onclick="PlayIntro();"> <img src="images/play_icon.png" width="128" height="128" alt="" id=""/> </button>
+    		<button id="play" onclick="PlayIntro();"> <img src="../images/play_icon.png" width="128" height="128" alt="" id=""/> </button>
     		
     	</div> 
     <br/>	
