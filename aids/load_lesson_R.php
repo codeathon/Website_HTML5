@@ -150,7 +150,7 @@
 	
 	// Global Variables.
 	var current_teaching_point = 1;
-	vari current_question = 1;
+	var current_question = 1;
 	
 	var tp_playlist= [];
 	var tp_imagelist= []; 
