@@ -143,8 +143,7 @@
 		$image_link = $image_rows['Name'];	
 		return $image_link;
 	}
-		echo $whoosh_transition_audio_link;
-		echo $whoosh_transition_image_link;
+		
 	 	
 ?>
 <script type='text/javascript'>
